@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Carousel } from 'antd';
+import { Carousel, Space } from 'antd';
 import Texty from 'rc-texty';
 import TweenOne from 'rc-tween-one';
-import QueueAnim from 'rc-queue-anim';
-import { AiFillGithub, AiFillWechat, AiFillQqCircle } from "react-icons/ai"
+import { AiFillGithub, AiFillWechat, AiFillQqCircle } from "react-icons/ai";
 import { BsChevronCompactDown } from 'react-icons/bs';
 import style from './index.module.less';
 
@@ -52,16 +51,12 @@ class Banner extends Component {
                     </Texty>
 
                     <div className={style.bannerIconQueue}>
-                        <QueueAnim delay={1200} duration={500}
-                                   animConfig={[{opacity: [1, 0], translateY: [0, 50]}]}>
-                            <div key="1">
-                                <AiFillGithub className={style.bannerIcon} title="Github"/>
-                                <AiFillWechat className={style.bannerIcon} title="WeChat"/>
-                                <AiFillQqCircle className={style.bannerIcon} title="QQ"/>
-                            </div>
-                        </QueueAnim>
+                        <Space size="large">
+                            <AiFillGithub className={style.bannerIcon} title="Github"/>
+                            <AiFillWechat className={style.bannerIcon} title="WeChat"/>
+                            <AiFillQqCircle className={style.bannerIcon} title="QQ"/>
+                        </Space>
                     </div>
-
                 </div>
 
                 <TweenOne animation={{y: 10, yoyo: true, repeat: -1, duration: 1000}}>

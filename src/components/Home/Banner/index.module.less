@@ -47,14 +47,23 @@
     bottom: -8vh;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeEffect 500ms linear 1200ms 1 normal forwards;
 
     .bannerIcon {
       display: inline-block;
-      margin: 1vh 2vh 0;
       color: #fff;
       font-size: 3vh;
       cursor: pointer;
     }
   }
+}
 
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
