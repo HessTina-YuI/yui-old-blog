@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
-import { Carousel } from 'antd';
-import style from './index.module.less';
+import { Element, Events, scroller } from "react-scroll";
+import Banner from "./Banner";
 
 class Home extends Component {
-    state = {
-        carouselImg: [
-            {
-                id: '1',
-                src: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17.png'
-            },
-            {
-                id: '2',
-                src: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17.png'
-            }
-        ]
-    };
+    componentDidMount() {
+        Events.scrollEvent.register("begin",  () => {});
+        Events.scrollEvent.register("end", () => {});
+    }
+
+    componentWillUnmount() {
+        Events.scrollEvent.remove("begin");
+        Events.scrollEvent.remove("end");
+    }
+
+    scrollToContainer = () => {
+        scroller.scrollTo('container', {
+            duration: 1500,
+            delay: 0,
+            smooth: 'easeInOutQuint',
+            offset: 50
+        })
+    }
 
     render() {
-        const {carouselImg} = this.state;
-
         return (
             <>
-                <Carousel autoplay>
-                    {
-                        carouselImg.map((value => (
-                                <div key={value.id}>
-                                    <div className={style.carouselImg}
-                                         style={{backgroundImage: `url(${value.src})`}}/>
-                                </div>
-                            )
-                        ))
-                    }
-                </Carousel>
+                <Banner scrollToContainer={this.scrollToContainer}/>
+                <Element name="container">
+                    <div style={{height: '1000px', background: 'red'}}/>
+                </Element>
             </>
         );
     }

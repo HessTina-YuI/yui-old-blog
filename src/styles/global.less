@@ -35,6 +35,21 @@ body,
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px; //y轴滚动条宽度
+  height: 8px; //x轴滚动条高度
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px; //滚动条的圆角
+  background: #40a9ff; //滚动条的背景颜色
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; //滚动条的背景区域的圆角
+  background: #ffffff; //滚动条的背景颜色
+}
+
 .icon-spin {
   -webkit-animation: icon-spin 0.7s infinite linear;
   animation: icon-spin 0.7s infinite linear;
