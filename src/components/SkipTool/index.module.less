@@ -1,0 +1,39 @@
+.tool {
+  position: fixed;
+  bottom: -30px;
+  right: 10vw;
+  width: 12rem;
+  background: transparent;
+  transition: bottom .2s ease-in-out 0s;
+}
+
+.toolDisappear {
+  bottom: 0;
+}
+
+.tool ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  text-align: center;
+}
+
+.tool ul li {
+  width: 25%;
+}
+
+.tool ul li:last-child {
+  width: 100%;
+  display: block;
+  min-height: .125rem;
+  background-color: @primary-color;
+}
+
+.icon {
+  cursor: pointer;
+  color: @text-color;
+}
+
+.icon:hover {
+  color: @primary-color;
+}

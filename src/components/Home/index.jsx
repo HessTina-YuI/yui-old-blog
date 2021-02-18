@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Element, Events, scroller } from "react-scroll";
+import { Element, Events, scroller, animateScroll } from "react-scroll";
 import Header from "../Header";
 import Banner from "./Banner";
 import About from "./About";
+import SkipTool from "../SkipTool";
 
 class Home extends Component {
     state = {
-        showHeaderMenu: false
+        showHeaderMenu: false,
+        process: '0%'
     };
 
     componentDidMount() {
@@ -15,6 +17,13 @@ class Home extends Component {
         Events.scrollEvent.register('end', () => {
         });
         window.addEventListener('scroll', this.bindHandleScroll);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const browserHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        const visualHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        this.validHeigh = browserHeight - visualHeight;
     }
 
     componentWillUnmount() {
@@ -26,9 +35,8 @@ class Home extends Component {
     bindHandleScroll = (event) => {
         const {showHeaderMenu} = this.state;
 
-        const scrollTop = (event.target ? event.target.documentElement.scrollTop : false)
-            || window.pageYOffset
-            || (event.target ? event.target.body.scrollTop : 0);
+        const scrollTop = event.target.documentElement.scrollTop;
+        const process = Math.floor(scrollTop * 100 / this.validHeigh) + '%';
 
         const showMenuTop = 200;
 
@@ -37,6 +45,8 @@ class Home extends Component {
         } else if (scrollTop <= showMenuTop && showHeaderMenu === true) {
             this.setState({showHeaderMenu: false});
         }
+
+        this.setState({process});
     };
 
     scrollToContainer = () => {
@@ -48,8 +58,16 @@ class Home extends Component {
         });
     };
 
+    toTop = () => {
+        animateScroll.scrollToTop();
+    };
+
+    toBottom = () => {
+        animateScroll.scrollToBottom();
+    };
+
     render() {
-        const {showHeaderMenu} = this.state;
+        const {showHeaderMenu, process} = this.state;
 
         return (
             <>
@@ -63,6 +81,7 @@ class Home extends Component {
                         <div style={{height: '1000px', background: 'red'}}/>
                     </section>
                 </Element>
+                <SkipTool toTop={this.toTop} toBottom={this.toBottom} isShow={showHeaderMenu} process={process}/>
             </>
         );
     }
