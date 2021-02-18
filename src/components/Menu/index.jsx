@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Header from "../Header";
-import { headerActionType } from "../../redux/constants";
 
 class Menu extends Component {
     render() {
         return (
             <>
-                <Header title={headerActionType.MENU.title}/>
-                Hello
+                <Header/>
+                <div style={{
+                    background: "black",
+                    height: "1000px",
+                    width: "100%"
+                }}/>
             </>
         );
     }

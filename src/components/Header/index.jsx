@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import cls from 'classnames';
-import { Menu } from "antd";
-import { headerActionType } from "../../redux/constants";
 import style from './index.module.less';
 
 class Header extends Component {
+    state = {
+        showMenu: true
+    };
+
+    componentDidMount() {
+        const {showMenu} = this.props;
+
+        if (showMenu === undefined) {
+            this.setState({showMenu: false});
+            setTimeout(() => this.setState({showMenu: true}), 0);
+        } else {
+            this.setState({showMenu});
+        }
+    }
+
     render() {
-        const {showMenu = true} = this.props;
+        const showMenu = this.props.showMenu === undefined ? this.state.showMenu : this.props.showMenu;
 
         const showNav = cls(style.navbar, showMenu ? style.sticky : '');
 

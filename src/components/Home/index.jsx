@@ -50,11 +50,11 @@ class Home extends Component {
     };
 
     render() {
-        const {title, showHeaderMenu} = this.state;
+        const {showHeaderMenu} = this.state;
 
         return (
             <>
-                <Header title={title} showMenu={showHeaderMenu}/>
+                <Header showMenu={showHeaderMenu}/>
                 <Banner scrollToContainer={this.scrollToContainer}/>
                 <Element name="container">
                     <section>
