@@ -22,16 +22,16 @@ class Header extends Component {
     render() {
         const showMenu = this.props.showMenu === undefined ? this.state.showMenu : this.props.showMenu;
 
+        const context = cls("context", style.innerWidth);
         const showNav = cls(style.navbar, showMenu ? style.sticky : '');
 
         return (
             <nav className={showNav}>
-                <div className={style.innerWidth}>
+                <div className={context}>
                     <Link href="/"><a className={style.logo}/></Link>
                     <div className={style.navbarMenu}>
                         <Link href="/"><a>Home</a></Link>
                         <Link href="/menu"><a>Menu</a></Link>
-                        <Link href="/about"><a>About</a></Link>
                         <Link href="/services"><a>Services</a></Link>
                         <Link href="/education"><a>Education</a></Link>
                         <Link href="/works"><a>Works</a></Link>

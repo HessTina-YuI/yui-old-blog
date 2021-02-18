@@ -5,10 +5,10 @@ class Menu extends Component {
     render() {
         return (
             <>
-                <Header/>
+                <Header showMenu={false}/>
                 <div style={{
                     background: "black",
-                    height: "1000px",
+                    height: "200vh",
                     width: "100%"
                 }}/>
             </>

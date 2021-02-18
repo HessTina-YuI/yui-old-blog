@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Element, Events, scroller } from "react-scroll";
 import Header from "../Header";
 import Banner from "./Banner";
-import { headerActionType } from "../../redux/constants";
+import About from "./About";
 
 class Home extends Component {
     state = {
-        title: headerActionType.HOME.title,
         showHeaderMenu: false
     };
 
@@ -45,7 +44,7 @@ class Home extends Component {
             duration: 1500,
             delay: 0,
             smooth: 'easeInOutQuint',
-            offset: 50
+            offset: -50
         });
     };
 
@@ -57,6 +56,9 @@ class Home extends Component {
                 <Header showMenu={showHeaderMenu}/>
                 <Banner scrollToContainer={this.scrollToContainer}/>
                 <Element name="container">
+                    <About/>
+                </Element>
+                <Element name="text">
                     <section>
                         <div style={{height: '1000px', background: 'red'}}/>
                     </section>
