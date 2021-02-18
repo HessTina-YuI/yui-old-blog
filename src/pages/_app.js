@@ -1,6 +1,6 @@
-import { Provider } from "react-redux";
-import store from "../redux/store";
-import "../styles/global.less";
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+import '../styles/global.less';
 
 const YuIApp = ({Component, pageProps}) => {
     return (

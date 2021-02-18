@@ -4,29 +4,28 @@ import cls from 'classnames';
 import { Menu } from "antd";
 import { headerActionType } from "../../redux/constants";
 import style from './index.module.less';
-import './index.less';
 
 class Header extends Component {
     render() {
-        const {title, showMenu = true} = this.props;
+        const {showMenu = true} = this.props;
 
-        const headerStyle = cls(style.header, showMenu ? style.headerDisplay : style.headerUnDisplay);
+        const showNav = cls(style.navbar, showMenu ? style.sticky : '');
 
         return (
-            <header className={headerStyle}>
-                {showMenu ?
-                    (
-                        <Menu className={style.menu}  selectedKeys={[title]} mode="horizontal">
-                            <Menu.Item key={headerActionType.HOME.title}>
-                                <Link href={headerActionType.HOME.link}><a className={style.menuText}>主页</a></Link>
-                            </Menu.Item>
-                            <Menu.Item key={headerActionType.MENU.title}>
-                                <Link href={headerActionType.MENU.link}><a className={style.menuText}>目录</a></Link>
-                            </Menu.Item>
-                        </Menu>
-                    ) : ''
-                }
-            </header>
+            <nav className={showNav}>
+                <div className={style.innerWidth}>
+                    <Link href="/"><a className={style.logo}/></Link>
+                    <div className={style.navbarMenu}>
+                        <Link href="/"><a>Home</a></Link>
+                        <Link href="/menu"><a>Menu</a></Link>
+                        <Link href="/about"><a>About</a></Link>
+                        <Link href="/services"><a>Services</a></Link>
+                        <Link href="/education"><a>Education</a></Link>
+                        <Link href="/works"><a>Works</a></Link>
+                        <Link href="/contact"><a>Contact</a></Link>
+                    </div>
+                </div>
+            </nav>
         );
     }
 }

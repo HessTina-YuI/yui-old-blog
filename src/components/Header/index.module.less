@@ -1,29 +1,46 @@
-.header {
+.navbar {
   position: fixed;
-  z-index: 10;
-  height: 64px;
+  background-color: transparent;
   width: 100%;
+  padding: 30px 0;
+  top: 0;
+  z-index: 10;
+  transition: .3s linear;
 }
 
-.headerDisplay {
-  background: #fff;
-}
-
-.headerUnDisplay {
-  background: transparent;
-}
-
-.menu {
+.innerWidth {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 40px;
   display: flex;
-  justify-content: center;
-  position: relative;
-  bottom: -10px;
-  margin-bottom: 0;
-  background: transparent;
-  border: 0;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.menuText {
-  color: #fff;
-  font-size: 2vh;
+.logo {
+  width: 44px;
+  height: 32px;
+  //background-image: url(/static/img/white-logo.png);
+  background-size: contain;
+}
+
+.navbarMenu a {
+  color: @primary-color-bg;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-left: 30px;
+  transition: .2s linear;
+}
+
+.navbarMenu a:hover {
+  color: @primary-color !important;
+}
+
+.sticky{
+  background-color: @primary-color-bg;
+  padding: 18px 0;
+}
+
+.sticky .navbarMenu a{
+  color: @primary-color-bg--dark;
 }
