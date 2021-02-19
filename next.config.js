@@ -1,7 +1,4 @@
-/* eslint-disable */
-const withAntdLess = require('next-plugin-antd-less');
-
-module.exports = withAntdLess({
+module.exports = {
     modifyVars: {
         '@primary-color': '#1890ff'
     },
@@ -17,4 +14,10 @@ module.exports = withAntdLess({
     webpack: (config) => {
         return config;
     }
-});
+}
+
+const withAntdLess = require('next-plugin-antd-less');
+module.exports = withAntdLess(module.exports);
+
+const withYAML = require('next-yaml');
+module.exports = withYAML(module.exports);

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import cls from 'classnames';
+import yaml from '../../../config/common.yml';
 import style from './index.module.less';
 
 class About extends Component {
     state = {
-        imgUrl: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2020-02-19-01.png'
+        img: ''
     };
 
+    componentDidMount() {
+        this.setState({img: yaml.about.img});
+    }
+
     render() {
-        const {imgUrl} = this.state;
+        const {img} = this.state;
         const context = cls("context");
 
         return (
@@ -20,8 +25,8 @@ class About extends Component {
                         </div>
                     </div>
                     <div className={style.aboutContext}>
-                        <div className={style.aboutContextLeft} style={{backgroundImage: `url(${imgUrl})`}}/>
-                        <div className={style.aboutContextRight} >
+                        <div className={style.aboutContextLeft} style={{backgroundImage: `url(${img})`}}/>
+                        <div className={style.aboutContextRight}>
                         </div>
                     </div>
                 </div>

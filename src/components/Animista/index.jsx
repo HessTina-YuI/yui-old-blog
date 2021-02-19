@@ -19,4 +19,37 @@ class FadeIn extends Component {
     }
 }
 
-export { FadeIn };
+class ScaleInHorCenter extends Component {
+    render() {
+        const {delay = 0, duration = 500} = this.props;
+        const className = cls(this.props.className, style.scaleInHorCenter);
+
+        return (
+            <div className={className}
+                 style={{
+                     animationDelay: delay + 'ms',
+                     animationDuration: duration + 'ms'
+                 }}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+class DownSolidUpShallow extends Component {
+    render() {
+        const {duration = 1000} = this.props;
+        const className = cls(this.props.className, style.downSolidUpShallow);
+
+        return (
+            <div className={className}
+                 style={{
+                     animationDuration: duration + 'ms'
+                 }}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+export { FadeIn, ScaleInHorCenter, DownSolidUpShallow };
