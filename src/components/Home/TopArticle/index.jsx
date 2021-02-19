@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import cls from 'classnames';
+import ModuleSplit from "../ModuleSplit";
+import { BigArticleCard } from "../ArticleCard";
 import style from "./index.module.less";
 
 class TopArticle extends Component {
@@ -9,7 +11,8 @@ class TopArticle extends Component {
         return (
             <section>
                 <div className={context}>
-                    <div style={{height: '100vh'}}/>
+                    <ModuleSplit title="TopArticle"/>
+                    <BigArticleCard/>
                 </div>
             </section>
         );

@@ -1,0 +1,117 @@
+.bigCard {
+  position: relative;
+  height: 250px;
+  background: @primary-color-bg;
+  margin: 0 150px;
+  border-radius: 10px;
+}
+
+.bigCardContent {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background: transparent;
+  transition: all .2s linear;
+}
+
+.bigCardContentSticky {
+  box-shadow: 0 0 22px 3px rgba(0, 0, 0, 0.18);
+  background: transparent;
+}
+
+.bigCardContainerImg {
+  width: 55%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+
+.bigCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+  transition: all .2s linear;
+}
+
+.bigCardImgSticky {
+  transform: scale(1.1) rotateZ(1deg);
+}
+
+.bigCardMask {
+  position: absolute;
+  width: 55%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(70deg, transparent, @primary-color-bg 80%);
+}
+
+.bigCardArticle {
+  width: 45%;
+}
+
+.bigCardArticleDesc {
+  display: flex;
+  justify-items: center;
+  width: 100%;
+  margin: 1.5em 1em 0;
+  font-size: 1em;
+  color: @text-color-gray;
+
+  .bigCardArticleDescIcon {
+    margin-right: 0.25em;
+    font-size: 1.5em;
+  }
+}
+
+.bigCardArticleDesc li {
+  display: flex;
+  justify-items: center;
+  padding-right: 1em;
+}
+
+.bigCardArticleDesc li:last-child {
+  padding-right: 0;
+}
+
+.bigCardArticleDescRight {
+  position: relative;
+  right: -14em;
+}
+
+.bigCardArticle h3 {
+  width: 15em;
+  font-size: 2em;
+  line-height: 2em;
+  margin: 0;
+}
+
+.bigCardArticle div {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  padding-right: 1em;
+}
+
+.bigCardMore {
+  position: absolute;
+  right: -.5em;
+  bottom: -.5em;
+  display: grid;
+  place-items: center;
+  height: 2em;
+  width: 4em;
+  color: @primary-color-bg;
+  font-size: 1.6em;
+  background: linear-gradient(to top right, #B2FEFA, #0ED2F7);
+  border-radius: 10px 0 10px 0;
+  transition: all .1s linear;
+}
+
+.bigCardMore:hover {
+  right: -.65em;
+  bottom: -.65em;
+  cursor: pointer;
+}
