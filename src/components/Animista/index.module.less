@@ -61,3 +61,25 @@
     transform: translateY(10px);
   }
 }
+
+/**
+ * ----------------------------------------
+ * animation rotate
+ * ----------------------------------------
+ */
+.rotate {
+  display: inline-block;
+  animation: rotate 4000ms linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

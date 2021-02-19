@@ -52,4 +52,20 @@ class DownSolidUpShallow extends Component {
     }
 }
 
-export { FadeIn, ScaleInHorCenter, DownSolidUpShallow };
+class Rotate extends Component {
+    render() {
+        const {duration = 4000} = this.props;
+        const className = cls(this.props.className, style.rotate);
+
+        return (
+            <div className={className}
+                 style={{
+                     animationDuration: duration + 'ms'
+                 }}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+export { FadeIn, ScaleInHorCenter, DownSolidUpShallow, Rotate };

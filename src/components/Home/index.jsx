@@ -4,6 +4,7 @@ import Header from "../Header";
 import Banner from "./Banner";
 import About from "./About";
 import SkipTool from "../SkipTool";
+import TopArticle from "./TopArticle";
 
 class Home extends Component {
     state = {
@@ -76,10 +77,8 @@ class Home extends Component {
                 <Element name="container">
                     <About/>
                 </Element>
-                <Element name="text">
-                    <section>
-                        <div style={{height: '1000px', background: 'red'}}/>
-                    </section>
+                <Element name="topArticle">
+                    <TopArticle/>
                 </Element>
                 <SkipTool toTop={this.toTop} toBottom={this.toBottom} isShow={showHeaderMenu} process={process}/>
             </>

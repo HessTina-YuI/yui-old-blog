@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         const showMenu = this.props.showMenu === undefined ? this.state.showMenu : this.props.showMenu;
 
-        const context = cls("context", style.innerWidth);
+        const context = cls('context', style.innerWidth);
         const showNav = cls(style.navbar, showMenu ? style.sticky : '');
 
         return (
