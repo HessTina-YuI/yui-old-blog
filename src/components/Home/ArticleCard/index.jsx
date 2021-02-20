@@ -10,8 +10,11 @@ class BigArticleCard extends Component {
     state = {
         mouseSticky: false,
         url: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-20-01.png',
-        title: '',
-        context: ''
+        title: '12345678901234567890123456789012345678901234567890',
+        context: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试' +
+            '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试' +
+            '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试',
+
     };
 
     enterArticle = () => {
@@ -25,20 +28,19 @@ class BigArticleCard extends Component {
     render() {
         const {mouseSticky, url, title, context} = this.state;
         const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
-        const contentSticky = cls(style.bigCardContent, mouseSticky ? style.bigCardContentSticky : '');
-        const imgSticky = cls(style.bigCardImg, mouseSticky ? style.bigCardImgSticky : '');
+        const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
 
         return (
-            <div className={style.bigCard}>
-                <div className={contentSticky} onMouseEnter={this.enterArticle} onMouseLeave={this.leaveArticle}>
+            <div className={bigCardStyle}>
+                <div className={style.bigCardContent} onMouseEnter={this.enterArticle} onMouseLeave={this.leaveArticle}>
                     <div className={style.bigCardContainerImg}>
-                        <img className={imgSticky} alt="" src={url}/>
+                        <img className={style.bigCardImg} alt="" src={url}/>
                     </div>
 
                     <Link href="/menu"><a className={style.bigCardMask}/></Link>
 
                     <article className={style.bigCardArticle}>
-{/*                        <ul className={bigCardArticleDescRight}>
+                        <ul className={bigCardArticleDescRight}>
                             <li>
                                 <IoCalendar className={style.bigCardArticleDescIcon}/>
                                 <span>2021-02-20</span>
@@ -51,19 +53,23 @@ class BigArticleCard extends Component {
                                 <IoTime className={style.bigCardArticleDescIcon}/>
                                 <span>20 分钟</span>
                             </li>
-                        </ul>*/}
-                        <Typography.Title level={3} ellipsis={{tooltip: title}}>
-                            {title}
-                        </Typography.Title>
-                        <Typography.Paragraph ellipsis={{rows: 3}}>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{context}
-                        </Typography.Paragraph>
-{/*                        <ul className={style.bigCardArticleDesc}>
+                        </ul>
+
+                        <div className={style.bigCardArticleContext}>
+                            <Typography.Title level={3} ellipsis={{tooltip: title}}>
+                                {title}
+                            </Typography.Title>
+                            <Typography.Paragraph ellipsis={{rows:3}}>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{context}
+                            </Typography.Paragraph>
+                        </div>
+
+                        <ul className={style.bigCardArticleDesc}>
                             <li>
                                 <IoFolder className={style.bigCardArticleDescIcon}/>
                                 <span>测试</span>
                             </li>
-                        </ul>*/}
+                        </ul>
                     </article>
                 </div>
                 <Link href="/menu">
