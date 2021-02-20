@@ -17,9 +17,13 @@ class SkipTool extends Component {
         return (
             <div className={toolStyle}>
                 <ul>
+                    {/* pre article */}
                     <li><IoChevronBackOutline className={style.icon} onClick={this.unCompleted}/></li>
+                    {/* to top */}
                     <li><IoArrowUpOutline className={style.icon} onClick={toTop}/></li>
+                    {/* to bottom */}
                     <li><IoArrowDownOutline className={style.icon} onClick={toBottom}/></li>
+                    {/* next article */}
                     <li><IoChevronForwardOutline className={style.icon} onClick={this.unCompleted}/></li>
                     <li style={{width: process}}/>
                 </ul>

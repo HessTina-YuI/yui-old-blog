@@ -36,8 +36,11 @@ class Header extends Component {
         return (
             <nav className={showNavStyle}>
                 <div className={context}>
+                    {/* logo */}
                     <Link href="/"><a className={style.logo}/></Link>
+                    {/* mobile menu button */}
                     <IoMenu className={style.navbarMenuButton} onClick={this.clickNavbarMenuButton}/>
+                    {/* computer menu button */}
                     <div className={navbarMenuStyle}>
                         <Link href="/"><a>Home</a></Link>
                         <Link href="/menu"><a>Menu</a></Link>

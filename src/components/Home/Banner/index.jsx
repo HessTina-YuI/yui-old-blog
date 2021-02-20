@@ -25,6 +25,7 @@ class Banner extends Component {
 
         return (
             <>
+                {/* Carousel component */}
                 <Carousel autoplay dotPosition="right">
                     {
                         carouselImg.map((value, index) => (
@@ -36,18 +37,21 @@ class Banner extends Component {
                         )
                     }
                 </Carousel>
-
+                {/* banner text */}
                 <div className={context}>
+                    {/* mainer text */}
                     <Texty className={style.bannerTextMainer}>
                         YuI HessTina
                     </Texty>
+                    {/* combined line */}
                     <ScaleInHorCenter delay={1000}>
                         <div className={style.combinedBar}/>
                     </ScaleInHorCenter>
+                    {/* content text */}
                     <Texty className={style.bannerTextContent} type="bottom" mode="sync" delay={1200} duration={500}>
                         Black Tea
                     </Texty>
-
+                    {/* icon */}
                     <FadeIn className={style.bannerIconQueue} delay={1200} duration={500}>
                         <Space size="large">
                             <Tooltip placement="bottom" title="Github">
@@ -62,7 +66,7 @@ class Banner extends Component {
                         </Space>
                     </FadeIn>
                 </div>
-
+                {/* down arrow */}
                 <DownSolidUpShallow duration={1500}>
                     <BsChevronCompactDown className={style.headerDown} onClick={scrollToContainer}/>
                 </DownSolidUpShallow>

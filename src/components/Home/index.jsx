@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Element, Events, scroller, animateScroll } from "react-scroll";
-import Header from "../Header";
-import Banner from "./Banner";
-import About from "./About";
-import SkipTool from "../SkipTool";
-import TopArticle from "./TopArticle";
-import Footer from "../Footer";
+import { Element, Events, scroller, animateScroll } from 'react-scroll';
+import Header from '../Header';
+import Banner from './Banner';
+import About from './About';
+import SkipTool from '../SkipTool';
+import TopArticle from './TopArticle';
+import Footer from '../Footer';
 
 class Home extends Component {
     state = {
@@ -73,14 +73,19 @@ class Home extends Component {
 
         return (
             <>
+                {/* Header component */}
                 <Header showNav={showHeaderMenu}/>
+                {/* Banner component */}
                 <Banner scrollToContainer={this.scrollToContainer}/>
+                {/* About component */}
                 <Element name="container">
                     <About/>
                 </Element>
+                {/* TopArticle component */}
                 <Element name="topArticle">
                     <TopArticle/>
                 </Element>
+                {/* SkipTool component */}
                 <SkipTool toTop={this.toTop} toBottom={this.toBottom} isShow={showHeaderMenu} process={process}/>
                 <Footer/>
             </>

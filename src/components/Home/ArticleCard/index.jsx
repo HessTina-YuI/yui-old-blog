@@ -9,13 +9,22 @@ import style from './index.module.less';
 class BigArticleCard extends Component {
     state = {
         mouseSticky: false,
-        url: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-20-01.png',
-        title: '12345678901234567890123456789012345678901234567890',
-        context: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试' +
-            '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试' +
-            '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试',
-
+        articleParam: {}
     };
+
+    componentDidMount() {
+        const {articleDoc, imgUrl, context, characters, category, tag} = this.props;
+        const articleDocArray = articleDoc.split("-");
+        const date = articleDocArray.slice(0, 3).join("-");
+        const title = articleDocArray[3];
+        const readTime = Math.floor(characters * 10 / 6);
+
+        this.setState({
+            articleParam: {
+                date, title, imgUrl, context, characters, category, readTime
+            }
+        });
+    }
 
     enterArticle = () => {
         this.setState({mouseSticky: true});
@@ -26,55 +35,66 @@ class BigArticleCard extends Component {
     };
 
     render() {
-        const {mouseSticky, url, title, context} = this.state;
+        const {mouseSticky} = this.state;
+        const {date, title, imgUrl, context, characters, category, readTime} = this.state.articleParam;
+
         const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
         const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
 
         return (
             <div className={bigCardStyle}>
                 <div className={style.bigCardContent} onMouseEnter={this.enterArticle} onMouseLeave={this.leaveArticle}>
+                    {/* img */}
                     <div className={style.bigCardContainerImg}>
-                        <img className={style.bigCardImg} alt="" src={url}/>
+                        <img className={style.bigCardImg} alt="" src={imgUrl}/>
                     </div>
-
+                    {/* img router */}
                     <Link href="/menu"><a className={style.bigCardMask}/></Link>
-
+                    {/* article div */}
                     <article className={style.bigCardArticle}>
                         <ul className={bigCardArticleDescRight}>
+                            {/* date */}
                             <li>
                                 <IoCalendar className={style.bigCardArticleDescIcon}/>
-                                <span>2021-02-20</span>
+                                <span>{date}</span>
                             </li>
+                            {/* characters */}
                             <li>
                                 <IoPencil className={style.bigCardArticleDescIcon}/>
-                                <span>5k 字</span>
+                                <span>{characters}k 字</span>
                             </li>
+                            {/* readTime */}
                             <li>
                                 <IoTime className={style.bigCardArticleDescIcon}/>
-                                <span>20 分钟</span>
+                                <span>{readTime} 分钟</span>
                             </li>
                         </ul>
-
+                        {/* article */}
                         <div className={style.bigCardArticleContext}>
+                            {/* article title */}
                             <Typography.Title level={3} ellipsis={{tooltip: title}}>
                                 {title}
                             </Typography.Title>
-                            <Typography.Paragraph ellipsis={{rows:3}}>
+                            {/* article content */}
+                            <Typography.Paragraph ellipsis={{rows: 3}}>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{context}
                             </Typography.Paragraph>
                         </div>
 
+                        {/* category */}
                         <ul className={style.bigCardArticleDesc}>
                             <li>
                                 <IoFolder className={style.bigCardArticleDescIcon}/>
-                                <span>测试</span>
+                                <span>{category}</span>
                             </li>
                         </ul>
                     </article>
                 </div>
+                {/* more button */}
                 <Link href="/menu">
                     <a>
-                        <div className={style.bigCardMore} onMouseEnter={this.enterArticle} onMouseLeave={this.leaveArticle}>
+                        <div className={style.bigCardMore} onMouseEnter={this.enterArticle}
+                             onMouseLeave={this.leaveArticle}>
                             More
                         </div>
                     </a>
