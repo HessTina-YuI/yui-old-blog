@@ -1,35 +1,44 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import cls from 'classnames';
+import { IoMenu } from "react-icons/io5";
 import style from './index.module.less';
 
 class Header extends Component {
     state = {
-        showMenu: true
+        showNav: true,
+        showBar: false
     };
 
     componentDidMount() {
-        const {showMenu} = this.props;
+        const {showNav} = this.props;
 
-        if (showMenu === undefined) {
+        if (showNav === undefined) {
             this.setState({showMenu: false});
             setTimeout(() => this.setState({showMenu: true}), 0);
         } else {
-            this.setState({showMenu});
+            this.setState({showNav});
         }
     }
 
+    clickNavbarMenuButton = () => {
+        this.setState({showBar: !this.state.showBar});
+    };
+
     render() {
-        const showMenu = this.props.showMenu === undefined ? this.state.showMenu : this.props.showMenu;
+        const showNav = this.props.showNav === undefined ? this.state.showNav : this.props.showNav;
+        const {showBar} = this.state;
 
         const context = cls('context', style.innerWidth);
-        const showNav = cls(style.navbar, showMenu ? style.sticky : '');
+        const showNavStyle = cls(style.navbar, showNav ? style.sticky : '');
+        const navbarMenuStyle = cls(style.navbarMenu, showBar ? style.navbarMenuShow : '');
 
         return (
-            <nav className={showNav}>
+            <nav className={showNavStyle}>
                 <div className={context}>
                     <Link href="/"><a className={style.logo}/></Link>
-                    <div className={style.navbarMenu}>
+                    <IoMenu className={style.navbarMenuButton} onClick={this.clickNavbarMenuButton}/>
+                    <div className={navbarMenuStyle}>
                         <Link href="/"><a>Home</a></Link>
                         <Link href="/menu"><a>Menu</a></Link>
                         <Link href="/services"><a>Services</a></Link>

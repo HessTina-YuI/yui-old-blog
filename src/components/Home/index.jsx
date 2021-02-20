@@ -73,7 +73,7 @@ class Home extends Component {
 
         return (
             <>
-                <Header showMenu={showHeaderMenu}/>
+                <Header showNav={showHeaderMenu}/>
                 <Banner scrollToContainer={this.scrollToContainer}/>
                 <Element name="container">
                     <About/>

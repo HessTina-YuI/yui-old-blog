@@ -2,7 +2,7 @@
   position: fixed;
   background-color: transparent;
   width: 100%;
-  padding: 20px 0;
+  padding: 1rem 0;
   top: 0;
   z-index: 10;
   transition: .3s linear;
@@ -15,10 +15,21 @@
 }
 
 .logo {
-  width: 44px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   //background-image: url(/static/img/white-logo.png);
   background-size: contain;
+}
+
+.navbarMenuButton {
+  display: none;
+}
+
+.navbarMenu {
+  display: flex;
+}
+
+.navbarMenuShow {
 }
 
 .navbarMenu a {
@@ -33,11 +44,46 @@
   color: @primary-color !important;
 }
 
-.sticky{
+.sticky {
   background-color: @primary-color-bg;
-  padding: 20px 0;
+  padding: 1rem 0;
 }
 
-.sticky .navbarMenu a{
+.sticky .navbarMenu a {
   color: @primary-color-bg--dark;
+}
+
+@media screen and (max-width: 600px) {
+  .navbarMenuButton {
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+    font-size: 2rem;
+    color: @primary-color-bg;
+    background: transparent;
+  }
+
+  .sticky .navbarMenuButton {
+    color: @primary-color-bg--dark;
+  }
+
+  .navbarMenu {
+    position: absolute;
+    top: 4rem;
+    right: -40%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background: @primary-color-bg;
+    transition: right .2s linear;
+  }
+
+  .navbarMenuShow {
+    right: 0;
+  }
+
+  .navbarMenu a {
+    color: @primary-color-bg--dark;
+    padding: 1rem 0;
+  }
 }

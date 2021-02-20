@@ -5,7 +5,7 @@ class Menu extends Component {
     render() {
         return (
             <>
-                <Header showMenu={false}/>
+                <Header showNav={false}/>
                 <div style={{
                     background: "black",
                     height: "200vh",
