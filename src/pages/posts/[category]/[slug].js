@@ -22,7 +22,7 @@ export async function getStaticProps({params}) {
         'description',
         'content'
     ]);
-    console.log(item);
+
     return {
         props: {
             post: {
