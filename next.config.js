@@ -12,9 +12,13 @@ module.exports = {
     },
     // Other NextConfig Here...
     webpack: (config) => {
+        config.node = {
+            fs: 'empty'
+        };
+
         return config;
     }
-}
+};
 
 const withAntdLess = require('next-plugin-antd-less');
 module.exports = withAntdLess(module.exports);

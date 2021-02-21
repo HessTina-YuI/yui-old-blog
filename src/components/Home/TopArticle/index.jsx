@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cls from 'classnames';
 import ModuleSplit from "../ModuleSplit";
 import { BigArticleCard } from "../ArticleCard";
-import topArticle from '../../../../_article/topArticle.json';
+import topArticle from '../../../../public/article/topArticle.yml';
 import style from "./index.module.less";
 
 class TopArticle extends Component {
@@ -15,6 +15,7 @@ class TopArticle extends Component {
     }
 
     render() {
+        const{topArticle} = this.state;
         const context = cls('context');
 
         return (
@@ -25,8 +26,8 @@ class TopArticle extends Component {
                     {/* BigArticleCard component */}
                     {
                         topArticle ? topArticle.map(article => {
-                                const {articleDoc} = article;
-                                return <BigArticleCard {...article} key={articleDoc}/>;
+                                const {fileName} = article;
+                                return <BigArticleCard {...article} key={fileName}/>;
                             })
                             : null
                     }

@@ -13,15 +13,14 @@ class BigArticleCard extends Component {
     };
 
     componentDidMount() {
-        const {articleDoc, imgUrl, context, characters, category, tag} = this.props;
-        const articleDocArray = articleDoc.split("-");
-        const date = articleDocArray.slice(0, 3).join("-");
-        const title = articleDocArray[3];
+        const {fileName, title, coverImage, description, characters, category, tag} = this.props;
+        const articleDocArray = fileName.split("_");
+        const date = articleDocArray.slice(0, 1);
         const readTime = Math.floor(characters * 10 / 6);
 
         this.setState({
             articleParam: {
-                date, title, imgUrl, context, characters, category, readTime
+                fileName, title, date, coverImage, description, characters, category, readTime
             }
         });
     }
@@ -36,7 +35,7 @@ class BigArticleCard extends Component {
 
     render() {
         const {mouseSticky} = this.state;
-        const {date, title, imgUrl, context, characters, category, readTime} = this.state.articleParam;
+        const {fileName, title, date, coverImage, description, characters, category, readTime} = this.state.articleParam;
 
         const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
         const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
@@ -46,10 +45,12 @@ class BigArticleCard extends Component {
                 <div className={style.bigCardContent} onMouseEnter={this.enterArticle} onMouseLeave={this.leaveArticle}>
                     {/* img */}
                     <div className={style.bigCardContainerImg}>
-                        <img className={style.bigCardImg} alt="" src={imgUrl}/>
+                        <img className={style.bigCardImg} alt="" src={coverImage}/>
                     </div>
                     {/* img router */}
-                    <Link href="/menu"><a className={style.bigCardMask}/></Link>
+                    <Link href="/posts/[category]/[title]" as={`/posts/${category}/${fileName}`}>
+                        <a className={style.bigCardMask}/>
+                    </Link>
                     {/* article div */}
                     <article className={style.bigCardArticle}>
                         <ul className={bigCardArticleDescRight}>
@@ -77,7 +78,7 @@ class BigArticleCard extends Component {
                             </Typography.Title>
                             {/* article content */}
                             <Typography.Paragraph ellipsis={{rows: 3}}>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{context}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{description}
                             </Typography.Paragraph>
                         </div>
 
@@ -91,7 +92,7 @@ class BigArticleCard extends Component {
                     </article>
                 </div>
                 {/* more button */}
-                <Link href="/menu">
+                <Link href="/posts/[category]/[title]" as={`/posts/${category}/${fileName}`}>
                     <a>
                         <div className={style.bigCardMore} onMouseEnter={this.enterArticle}
                              onMouseLeave={this.leaveArticle}>
