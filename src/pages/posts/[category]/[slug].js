@@ -1,12 +1,14 @@
 import React from 'react';
 import { getPostBySlug, getAllPosts } from '../../../lib/api';
+import Article from "../../../components/Article";
 require('../../../styles/global.less');
+require('../../../styles/markdown.less');
 
-function PostTemplate({ post, morePosts, preview }) {
+function PostTemplate({post, morePosts, preview}) {
     return (
-        <div>
-            {post.content}
-        </div>
+        <main>
+            <Article article={post}/>
+        </main>
     );
 }
 
