@@ -7,7 +7,8 @@ import { FadeIn } from "../Animista";
 
 class Header extends Component {
     state = {
-        showHeader: false
+        showHeader: false,
+        mobileMenu: false
     };
 
     componentDidMount() {
@@ -33,15 +34,15 @@ class Header extends Component {
     };
 
     clickNavbarMenuButton = () => {
-        this.setState({showBar: !this.state.showBar});
+        this.setState({mobileMenu: !this.state.mobileMenu});
     };
 
     render() {
-        const {showHeader} = this.state;
+        const {showHeader, mobileMenu} = this.state;
 
         const context = cls('context', style.innerWidth);
         const showNavStyle = cls(style.navbar, showHeader ? style.sticky : '');
-        const navbarMenuStyle = cls(style.navbarMenu, showHeader ? style.navbarMenuShow : '');
+        const navbarMenuStyle = cls(style.navbarMenu, mobileMenu ? style.navbarMenuShow : '');
 
         return (
             <FadeIn className={showNavStyle}>

@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import gemoji from 'remark-gemoji';
 import cls from 'classnames';
 import Header from "../Header";
+import Code from "./Code";
+import HeadingBlock from "./HeadingBlock";
 
 class Article extends Component {
-    render() {
-        const {article} = this.props;
+    renderers = {
+        heading: ({level, children}) => <HeadingBlock level={level} children={children}/>,
+        code: ({language, value}) => <Code language={language} value={value}/>
+    };
 
-        const mdStyle = cls('markdown');
+    render() {
+        const {content} = this.props.article;
+
+        const mdStyle = cls('context', 'markdown');
 
         return (
             <>
                 {/* Header component */}
                 {/*<Header/>*/}
-                <div className={mdStyle} dangerouslySetInnerHTML={{ __html: article.content }}/>
+                <div className={mdStyle}>
+                    <ReactMarkdown renderers={this.renderers} plugins={[[gfm], [gemoji]]} children={content}/>
+                </div>
             </>
         );
     }

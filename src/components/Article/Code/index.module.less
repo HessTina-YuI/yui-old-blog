@@ -1,0 +1,42 @@
+.figure {
+  margin: 1rem 0;
+  background: #21252b;
+  border-radius: @border-radius-base;
+
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+
+    .btnIcon {
+      margin: .75rem;
+      width: .75rem;
+      height: .75rem;
+      border-radius: 50%;
+      background-color: #fc625d;
+      box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    }
+
+    .language {
+      color: #f1f1f1;
+      font-size: 1.025rem;
+    }
+
+    .icon {
+      color: #f1f1f1;
+      font-size: 1.25rem;
+      margin: .5rem .25rem .2rem;
+    }
+
+    .icon:last-child {
+      margin-right: 1rem;
+    }
+
+    .icon:hover {
+      cursor: pointer;
+    }
+  }
+
+  span {
+    min-width: 2.25em !important;
+  };
+}
