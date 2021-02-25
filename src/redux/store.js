@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from "redux-thunk";
-import HeaderReducer from "./header/reducer";
+import AnchorMenuReducer from "./AnchorMemu/reducer";
 
 const bindMiddleware = middleware => {
     if (process.env.NODE_ENV !== "production") {
@@ -14,7 +14,7 @@ const bindMiddleware = middleware => {
 };
 
 const allReducer = combineReducers({
-    headerReducer: HeaderReducer
+    anchorMenu: AnchorMenuReducer
 });
 
 export default createStore(allReducer, bindMiddleware([thunk]));

@@ -15,6 +15,10 @@ class Code extends Component {
 
     static codeStyle = {};
 
+    static lineNumberStyle = {
+        minWidth: '2.25em'
+    }
+
     iconClick = () => {
         message.info('功能还在施工中', 0.5).then();
     };
@@ -32,7 +36,8 @@ class Code extends Component {
                         <IoExpandOutline className={style.icon} onClick={this.iconClick}/>
                     </div>
                 </figcaption>
-                <SyntaxHighlighter customStyle={Code.preStyle} codeTagProps={Code.codeStyle} showLineNumbers
+                <SyntaxHighlighter customStyle={Code.preStyle} codeTagProps={Code.codeStyle}
+                                   lineNumberStyle={Code.lineNumberStyle} showLineNumbers
                                    style={vscDarkPlus} language={language}
                                    children={value}/>
             </figure>

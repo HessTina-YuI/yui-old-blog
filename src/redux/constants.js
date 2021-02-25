@@ -1,10 +1,4 @@
-export const headerActionType = {
-    HOME: {
-        title: 'home',
-        link: '/'
-    },
-    MENU: {
-        title: 'menu',
-        link: '/menu'
-    }
+export const anchorMenuType = {
+    INIT: 'init anchor',
+    ADD: 'add anchor'
 };
