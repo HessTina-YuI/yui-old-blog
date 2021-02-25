@@ -5,32 +5,32 @@
   width: 12rem;
   background: transparent;
   transition: bottom .2s ease-in-out 0s;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    text-align: center;
+
+    li {
+      width: 25%;
+    }
+
+    li:last-child {
+      width: 100%;
+      display: block;
+      min-height: .125rem;
+      background-color: @primary-color;
+    }
+  }
 }
 
 .toolDisappear {
   bottom: 0;
 }
 
-.tool ul {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 20px;
-  text-align: center;
-}
-
-.tool ul li {
-  width: 25%;
-}
-
-.tool ul li:last-child {
-  width: 100%;
-  display: block;
-  min-height: .125rem;
-  background-color: @primary-color;
-}
-
 .icon {
-  cursor: pointer;
+  cursor: @mouse-icon;
   color: @text-color;
 }
 

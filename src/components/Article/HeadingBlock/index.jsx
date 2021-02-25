@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { scrollToView } from "../../../lib/scroller";
 import style from './index.module.less';
 
-class HeadingBlock extends PureComponent {
+class HeadingBlock extends Component {
     scrollToAnchor = (anchorName) => {
         if (anchorName) {
             const anchorElement = document.getElementById(anchorName);
@@ -19,7 +20,7 @@ class HeadingBlock extends PureComponent {
                 <Heading className={style.heading} level={`h${level}`} id={value}>
                     <div className={style.level}>H<span>{level}</span></div>
                     <span className={style.title}>{value}</span>
-                    <a className={style.link} onClick={() => this.scrollToAnchor(value)}>#</a>
+                    <a className={style.link} onClick={() => scrollToView(value, 100)}>#</a>
                 </Heading>
                 <div className={style.split}/>
             </div>

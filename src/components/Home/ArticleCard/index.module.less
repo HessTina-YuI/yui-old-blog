@@ -8,6 +8,14 @@
 }
 
 .sticky {
+  .bigCardContent {
+    box-shadow: 0 0 22px 3px rgba(0, 0, 0, 0.18);
+    background: transparent;
+  }
+
+  .bigCardImg {
+    transform: scale(1.1) rotateZ(1deg);
+  }
 }
 
 .bigCardContent {
@@ -18,11 +26,6 @@
   border-radius: @border-radius-base;
   background: transparent;
   transition: all .2s linear;
-}
-
-.sticky .bigCardContent {
-  box-shadow: 0 0 22px 3px rgba(0, 0, 0, 0.18);
-  background: transparent;
 }
 
 .bigCardContainerImg {
@@ -38,10 +41,6 @@
   object-fit: cover;
   border-radius: @border-radius-base 0 0 @border-radius-base;
   transition: all .2s linear;
-}
-
-.sticky .bigCardImg {
-  transform: scale(1.1) rotateZ(1deg);
 }
 
 .bigCardMask {
@@ -70,16 +69,16 @@
     margin-right: 0.25em;
     font-size: 1.5em;
   }
-}
 
-.bigCardArticleDesc li {
-  display: flex;
-  justify-items: center;
-  padding-right: 1rem;
-}
+  li {
+    display: flex;
+    justify-items: center;
+    padding-right: 1rem;
+  }
 
-.bigCardArticleDesc li:last-child {
-  padding-right: 0;
+  li:last-child {
+    padding-right: 0;
+  }
 }
 
 .bigCardArticleDescRight {
@@ -90,23 +89,23 @@
 .bigCardArticleContext {
   display: grid;
   height: 70%;
-}
 
-.bigCardArticleContext h3 {
-  width: 30vw;
-  height: 20%;
-  font-size: 2em;
-  line-height: 2em;
-  margin: 0;
-}
+  h3 {
+    width: 30vw;
+    height: 20%;
+    font-size: 2em;
+    line-height: 2em;
+    margin: 0;
+  }
 
-.bigCardArticleContext div {
-  width: 100%;
-  height: 80%;
-  font-size: 1.2em;
-  line-height: 1.8em !important;
-  padding-right: 1em;
-  overflow: hidden;
+  div {
+    width: 100%;
+    height: 80%;
+    font-size: 1.2em;
+    line-height: 1.8em !important;
+    padding-right: 1em;
+    overflow: hidden;
+  }
 }
 
 .bigCardMore {
@@ -127,5 +126,5 @@
 .bigCardMore:hover {
   right: -.65em;
   bottom: -.65em;
-  cursor: pointer;
+  cursor: @mouse-icon;
 }

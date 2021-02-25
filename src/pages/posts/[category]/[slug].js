@@ -17,7 +17,7 @@ export async function getStaticProps({params}) {
     const item = getPostBySlug(category, slug, [
         'title',
         'date',
-        'coverImage',
+        'articleTopImage',
         'characters',
         'category',
         'tag',

@@ -1,6 +1,6 @@
 .carouselImg {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%);
   color: @primary-color-bg;
   font-size: 3rem;
-  cursor: pointer;
+  cursor: @mouse-icon;
 }
 
 .bannerText {
@@ -27,10 +27,10 @@
     color: @primary-color-bg;
     font-size: 6em;
     text-align: center;
-  }
 
-  .bannerTextMainer span {
-    font-family: "Ubuntu", sans-serif !important;
+    span {
+      font-family: "Ubuntu", sans-serif !important;
+    }
   }
 
   .bannerTextContent {
@@ -57,7 +57,7 @@
       display: inline-block;
       color: @primary-color-bg;
       font-size: 2em;
-      cursor: pointer;
+      cursor: @mouse-icon;
     }
 
     .bannerIcon:hover {

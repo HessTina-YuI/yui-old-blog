@@ -1,16 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactMarkdownWithHtml from 'react-markdown/with-html';
-import gfm from 'remark-gfm';
-import gemoji from 'remark-gemoji';
-import cls from 'classnames';
 import Header from '../Header';
-import Code from './Code';
-import HeadingBlock from './HeadingBlock';
+import SkipTool from "../SkipTool";
 import AnchorMenu from './AnchorMenu';
+import Markdown from "./Markdown";
 import { initAnchor, addAnchor } from '../../redux/AnchorMemu/action';
+import style from './index.module.less';
 
-class Article extends PureComponent {
+class Article extends Component {
     constructor(props) {
         super(props);
 
@@ -18,45 +15,35 @@ class Article extends PureComponent {
         initAnchor();
     }
 
-    renderers = {
-        heading: ({level, children}) => {
-            let value;
-            if (!children && children.length <= 0) {
-                value = '';
-            } else {
-                value = children[0].props.value;
-            }
-
-            const {addAnchor} = this.props;
-            addAnchor({level, value});
-
-            return <HeadingBlock level={level} value={value}/>;
-        },
-
-        code: ({language, value}) => <Code language={language} value={value}/>
-    };
-
     render() {
-        const {content} = this.props.article;
-
-        const mdStyle = cls('context', 'markdown');
+        const {content, articleTopImage} = this.props.article;
 
         return (
             <>
                 {/* Header component */}
-                {/*<Header/>*/}
-                <AnchorMenu/>
+                <Header showHeaderTop={500}/>
 
-                <div className={mdStyle}>
-                    <ReactMarkdownWithHtml renderers={this.renderers} plugins={[[gfm], [gemoji]]}
-                                           children={content} allowDangerousHtml/>
+                <div className={style.articleTopImg} style={{backgroundImage: `url(${articleTopImage})`}}/>
+
+                <div className={style.articleMask}/>
+
+                <div className={style.article}>
+                    <div className={style.articleContent}>
+                        <Markdown content={content}/>
+                    </div>
+
+                    <div className={style.anchorMenu}>
+                        <AnchorMenu/>
+                    </div>
                 </div>
+
+                <SkipTool showMenuTop={500}/>
             </>
         );
     }
 }
 
 export default connect(
-    null,
+    (state) => ({anchors: state.anchorMenu}),
     {initAnchor, addAnchor}
 )(Article);

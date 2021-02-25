@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Element, Events, scroller, animateScroll } from 'react-scroll';
+import { Element, Events, scroller } from 'react-scroll';
 import Header from '../Header';
 import Banner from './Banner';
 import About from './About';
@@ -29,14 +29,6 @@ class Home extends Component {
         });
     };
 
-    toTop = () => {
-        animateScroll.scrollToTop();
-    };
-
-    toBottom = () => {
-        animateScroll.scrollToBottom();
-    };
-
     render() {
         return (
             <>
@@ -53,7 +45,7 @@ class Home extends Component {
                     <TopArticle/>
                 </Element>
                 {/* SkipTool component */}
-                <SkipTool toTop={this.toTop} toBottom={this.toBottom} showMenuTop={200}/>
+                <SkipTool showMenuTop={200}/>
                 <Footer/>
             </>
         );

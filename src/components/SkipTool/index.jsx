@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { animateScroll } from 'react-scroll';
 import { message } from 'antd';
 import { IoChevronBackOutline, IoChevronForwardOutline, IoArrowUpOutline, IoArrowDownOutline } from "react-icons/io5";
 import cls from 'classnames';
@@ -48,7 +49,6 @@ class SkipTool extends Component {
 
     render() {
         const {showHeaderMenu, process = '0'} = this.state;
-        const {toTop, toBottom} = this.props;
 
         const toolStyle = cls(style.tool, showHeaderMenu ? style.toolDisappear : '');
 
@@ -58,9 +58,9 @@ class SkipTool extends Component {
                     {/* pre article */}
                     <li><IoChevronBackOutline className={style.icon} onClick={this.unCompleted}/></li>
                     {/* to top */}
-                    <li><IoArrowUpOutline className={style.icon} onClick={toTop}/></li>
+                    <li><IoArrowUpOutline className={style.icon} onClick={() => animateScroll.scrollToTop()}/></li>
                     {/* to bottom */}
-                    <li><IoArrowDownOutline className={style.icon} onClick={toBottom}/></li>
+                    <li><IoArrowDownOutline className={style.icon} onClick={() => animateScroll.scrollToBottom()}/></li>
                     {/* next article */}
                     <li><IoChevronForwardOutline className={style.icon} onClick={this.unCompleted}/></li>
                     <li style={{width: process}}/>

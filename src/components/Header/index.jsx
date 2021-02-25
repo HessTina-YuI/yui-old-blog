@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import cls from 'classnames';
 import { IoMenu } from "react-icons/io5";
-import style from './index.module.less';
 import { FadeIn } from "../Animista";
+import style from './index.module.less';
 
 class Header extends Component {
     state = {

@@ -10,7 +10,7 @@ class Code extends Component {
     static preStyle = {
         background: 'transparent',
         fontSize: '1rem',
-        padding: '0 0 .5rem'
+        padding: '0 .725rem .5rem'
     };
 
     static codeStyle = {};

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import style from './index.module.less';
 
 class Footer extends Component {
+
     render() {
         return (
-            <footer style={{height: '50vh', background: 'transparent'}}>
-
+            <footer className={style.footer}>
+                <span>Crafted with by YuI</span>
+                <span>Copyright &copy;{new Date().getFullYear()} YuI. All rights reserved.</span>
             </footer>
         );
     }
