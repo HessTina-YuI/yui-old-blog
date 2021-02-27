@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { scrollToView } from "../../../lib/scroller";
+import cls from 'classnames';
 import style from './index.module.less';
 
 class HeadingBlock extends Component {
@@ -15,15 +16,24 @@ class HeadingBlock extends Component {
     render() {
         const {level, value} = this.props;
 
+        const headingIgnoreTocStyle = cls('ignoreToc', style.heading);
+
         return (
-            <div className={style.headingBlock}>
-                <Heading className={style.heading} level={`h${level}`} id={value}>
-                    <div className={style.level}>H<span>{level}</span></div>
-                    <span className={style.title}>{value}</span>
-                    <a className={style.link} onClick={() => scrollToView(value, 100)}>#</a>
-                </Heading>
+            <>
+                <div className={style.headingBlock}>
+                    <Heading className={headingIgnoreTocStyle} level={`h${level}`} id={value}>
+                        <div className={style.level}>H<span>{level}</span></div>
+                    </Heading>
+                    <Heading className={style.heading} level={`h${level}`} id={value}>
+                        <span className={style.title}>{value}</span>
+                    </Heading>
+                    <Heading className={headingIgnoreTocStyle} level={`h${level}`} id={value}>
+                        <a className={style.link} onClick={() => scrollToView(value, 100)}>#</a>
+                    </Heading>
+
+                </div>
                 <div className={style.split}/>
-            </div>
+            </>
         );
     }
 }

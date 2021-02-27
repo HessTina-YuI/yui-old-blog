@@ -34,6 +34,7 @@ class Header extends Component {
     };
 
     clickNavbarMenuButton = () => {
+        console.log("sssssssss");
         this.setState({mobileMenu: !this.state.mobileMenu});
     };
 

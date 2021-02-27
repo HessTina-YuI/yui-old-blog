@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ReactMarkdownWithHtml from "react-markdown/with-html";
 import gfm from "remark-gfm";
 import gemoji from "remark-gemoji";
 import cls from 'classnames';
 import HeadingBlock from "../HeadingBlock";
 import Code from "../Code";
-import { addAnchor, initAnchor } from "../../../redux/AnchorMemu/action";
+
+require('./index.less');
 
 class Markdown extends Component {
     renderers = {
@@ -18,18 +18,10 @@ class Markdown extends Component {
                 value = children[0].props.value;
             }
 
-            const {addAnchor} = this.props;
-            addAnchor({level, value});
-
             return <HeadingBlock level={level} value={value}/>;
         },
         code: ({language, value}) => <Code language={language} value={value}/>
     };
-
-    // don't update, the heading will repeat render, and wrong.
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return false;
-    }
 
     render() {
         const {content} = this.props;
@@ -45,7 +37,4 @@ class Markdown extends Component {
     }
 }
 
-export default connect(
-    null,
-    {initAnchor, addAnchor}
-)(Markdown);
+export default Markdown;

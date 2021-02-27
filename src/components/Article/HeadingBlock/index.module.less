@@ -1,28 +1,8 @@
 .headingBlock {
   position: relative;
-}
-
-.heading {
   margin: 1rem 0;
   display: flex;
-  justify-content: space-between;
 
-  .level {
-    position: absolute;
-    left: -2.125rem;
-    color: @text-color-gray;
-  }
-
-  .title {
-    display: inline-block;
-  }
-
-  .link {
-    display: inline-block;
-  }
-}
-
-.headingBlock {
   h1 {
     font-size: 1.75rem;
 
@@ -72,7 +52,23 @@
       }
     }
   }
+}
 
+.heading {
+  .level {
+    position: absolute;
+    left: -2.125rem;
+    color: @text-color-gray;
+  }
+
+  .title {
+    display: inline-block;
+  }
+
+  .link {
+    position: absolute;
+    right: 0;
+  }
 }
 
 .split {

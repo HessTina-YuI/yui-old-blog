@@ -13,14 +13,14 @@ class BigArticleCard extends Component {
     };
 
     componentDidMount() {
-        const {fileName, title, coverImage, description, characters, category, tag} = this.props;
-        const articleDocArray = fileName.split("_");
+        const {slug, title, coverImage, description, characters, category, tag} = this.props;
+        const articleDocArray = slug.split("_");
         const date = articleDocArray.slice(0, 1);
         const readTime = Math.floor(characters * 10 / 6);
 
         this.setState({
             articleParam: {
-                fileName, title, date, coverImage, description, characters, category, readTime
+                slug, title, date, coverImage, description, characters, category, readTime
             }
         });
     }
@@ -35,7 +35,7 @@ class BigArticleCard extends Component {
 
     render() {
         const {mouseSticky} = this.state;
-        const {fileName, title, date, coverImage, description, characters, category, readTime} = this.state.articleParam;
+        const {slug, title, date, coverImage, description, characters, category, readTime} = this.state.articleParam;
 
         const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
         const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
@@ -48,7 +48,7 @@ class BigArticleCard extends Component {
                         <img className={style.bigCardImg} alt="" src={coverImage}/>
                     </div>
                     {/* img router */}
-                    <Link href="/posts/[category]/[title]" as={`/posts/${category}/${fileName}`}>
+                    <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
                         <a className={style.bigCardMask}/>
                     </Link>
                     {/* article div */}
@@ -92,7 +92,7 @@ class BigArticleCard extends Component {
                     </article>
                 </div>
                 {/* more button */}
-                <Link href="/posts/[category]/[title]" as={`/posts/${category}/${fileName}`}>
+                <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
                     <a>
                         <div className={style.bigCardMore} onMouseEnter={this.enterArticle}
                              onMouseLeave={this.leaveArticle}>

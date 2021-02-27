@@ -36,6 +36,8 @@
     "remark-directive": "^1.0.1",
     "remark-gemoji": "^6.0.0",
     "remark-gfm": "^1.0.0",
+    "remark-math": "^4.0.0",
+    "tocbot": "^4.12.2",
     "unist-util-visit": "^2.0.3",
     "yarn": "^1.22.10"
   },

@@ -1,50 +1,53 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import tocbot from 'tocbot';
 import { scrollToView } from '../../../lib/scroller';
-import style from './index.module.less';
+
+require('./index.less');
 
 class AnchorMenu extends Component {
-    fontSize = {
-        1: '1.25rem',
-        2: '1.0rem',
-        3: '.75rem',
-        4: '.625rem',
-        5: '0.5rem'
-    };
 
-    marginLeft = {
-        1: '0',
-        2: '.5rem',
-        3: '1rem',
-        4: '1.5rem',
-        5: '2rem'
-    };
-
-    render() {
-        const {anchors} = this.props;
-        return (
-            <>
-                {
-                    anchors ? anchors.map((anchor, index) => {
-                        const {level, value} = anchor;
-
-                        return (
-                            <div className={style.anchor} key={index}
-                                 onClick={() => scrollToView(anchor.value, 100)}
-                                 style={{fontSize: this.fontSize[level], marginLeft: this.marginLeft[level]}}>
-                                <span>
-                                    {value}
-                                </span>
-                            </div>
-                        );
-                    }) : null
+    componentDidMount() {
+        tocbot.init({
+            tocSelector: '.toc',
+            contentSelector: '.markdown',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            ignoreSelector: '.ignoreToc',
+            headingsOffset: 200,
+            hasInnerContainers: true,
+            collapseDepth: 0
+        });
+        const tocElements = document.getElementsByClassName('toc-link');
+        Array.from(tocElements).forEach(ele => {
+            ele.parentElement.onclick = (event) => {
+                if (event && event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
                 }
-            </>
-        );
+                scrollToView(ele.text, 100);
+            };
+        });
+
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return false;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        tocbot.refresh();
+    }
+
+    componentWillUnmount() {
+        tocbot.destroy();
+    }
+
+    render() {
+        return (
+            <div className="toc">
+            </div>
+        );
+    }
 }
 
-export default connect(
-    state => ({anchors: state.anchorMenu})
-)(AnchorMenu);
+export default AnchorMenu;

@@ -30,6 +30,8 @@ class Home extends Component {
     };
 
     render() {
+        const {allArticles, topArticles} = this.props;
+
         return (
             <>
                 {/* Header component */}
@@ -42,7 +44,7 @@ class Home extends Component {
                 </Element>
                 {/* TopArticle component */}
                 <Element name="topArticle">
-                    <TopArticle/>
+                    <TopArticle topArticles={topArticles}/>
                 </Element>
                 {/* SkipTool component */}
                 <SkipTool showMenuTop={200}/>

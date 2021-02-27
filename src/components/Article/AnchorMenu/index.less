@@ -1,0 +1,37 @@
+.toc {
+  position: relative;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-left: 2rem;
+
+  a {
+    pointer-events: none;
+  }
+}
+
+.toc-list {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
+.toc-list-item {
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+.toc-list-item:last-child {
+  padding-bottom: 0;
+}
+
+.toc-link {
+  color: @text-color;
+}
+
+.toc-list-item:hover {
+  cursor: @mouse-icon;
+}
+
+.is-active-link {
+  color: @primary-color;
+  font-weight: 700;
+}

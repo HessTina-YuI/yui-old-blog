@@ -2,20 +2,11 @@ import React, { Component } from 'react';
 import cls from 'classnames';
 import ModuleSplit from "../ModuleSplit";
 import { BigArticleCard } from "../ArticleCard";
-import topArticle from '../../../../public/article/topArticle.yml';
-import style from "./index.module.less";
 
 class TopArticle extends Component {
-    state = {
-        topArticle: []
-    };
-
-    componentDidMount() {
-        this.setState({topArticle: topArticle});
-    }
 
     render() {
-        const{topArticle} = this.state;
+        const {topArticles} = this.props;
         const context = cls('context');
 
         return (
@@ -25,11 +16,9 @@ class TopArticle extends Component {
                     <ModuleSplit title="TopArticle"/>
                     {/* BigArticleCard component */}
                     {
-                        topArticle ? topArticle.map(article => {
-                                const {fileName} = article;
-                                return <BigArticleCard {...article} key={fileName}/>;
-                            })
-                            : null
+                        topArticles ? topArticles.map((article, index) => {
+                            return <BigArticleCard {...article} key={index}/>;
+                        }) : null
                     }
                 </div>
             </section>

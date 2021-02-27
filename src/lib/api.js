@@ -19,7 +19,6 @@ export function getPostSlugs() {
     return slugParam;
 }
 
-
 export function getPostBySlug(category, slug, fields = []) {
     const fullPath = join(postsDirectory, `${category}/${slug}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');

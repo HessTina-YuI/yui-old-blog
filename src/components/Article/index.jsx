@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Header from '../Header';
 import SkipTool from "../SkipTool";
 import AnchorMenu from './AnchorMenu';
 import Markdown from "./Markdown";
-import { initAnchor, addAnchor } from '../../redux/AnchorMemu/action';
 import style from './index.module.less';
 
 class Article extends Component {
-    constructor(props) {
-        super(props);
-
-        const {initAnchor} = props;
-        initAnchor();
-    }
 
     render() {
         const {content, articleTopImage} = this.props.article;
@@ -43,7 +35,4 @@ class Article extends Component {
     }
 }
 
-export default connect(
-    (state) => ({anchors: state.anchorMenu}),
-    {initAnchor, addAnchor}
-)(Article);
+export default Article;

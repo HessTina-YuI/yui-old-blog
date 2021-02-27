@@ -1,5 +1,5 @@
-const scrollToView = (domId, offset) => {
-    const element = document.getElementById(domId);
+const scrollToView = (elementId, offset) => {
+    const element = document.getElementById(elementId);
     const rect = element.getBoundingClientRect();
     const targetY = rect.y + window.scrollY - offset;
 

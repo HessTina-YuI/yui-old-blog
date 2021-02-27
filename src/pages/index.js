@@ -1,29 +1,41 @@
 import Home from '../components/Home';
 import { getAllPosts } from '../lib/api';
+import yaml from '../config/common.yml';
+
 require('../styles/global.less');
 
-const Index = () => {
+const Index = (props) => {
     return (
         <main>
-            <Home/>
+            <Home {...props}/>
         </main>
     );
 };
 
 export async function getStaticProps() {
-    const allPosts = getAllPosts([
+    const allArticles = getAllPosts([
         'title',
         'date',
         'coverImage',
         'characters',
         'category',
         'description',
-        'tag'
-    ])
+        'tag',
+        'slug'
+    ]);
+
+    let allPostsMap = new Map();
+    allArticles.forEach(posts => {
+        const key = `/${posts.category}/${posts.slug}.md`;
+        allPostsMap.set(key, posts);
+    });
+
+    const topArticlePaths = yaml.topArticle;
+    const topArticles = topArticlePaths.map(path => allPostsMap.get(path));
 
     return {
-        props: { allPosts },
-    }
+        props: {allArticles, topArticles}
+    };
 }
 
 export default Index;
