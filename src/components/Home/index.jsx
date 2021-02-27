@@ -6,6 +6,7 @@ import About from './About';
 import SkipTool from '../SkipTool';
 import TopArticle from './TopArticle';
 import Footer from '../Footer';
+import ListArticle from "./ListArticle";
 
 class Home extends Component {
     componentDidMount() {
@@ -46,6 +47,10 @@ class Home extends Component {
                 <Element name="topArticle">
                     <TopArticle topArticles={topArticles}/>
                 </Element>
+                <Element name="listArticle">
+                    <ListArticle listArticles={allArticles}/>
+                </Element>
+
                 {/* SkipTool component */}
                 <SkipTool showMenuTop={200}/>
                 <Footer/>

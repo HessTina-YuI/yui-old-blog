@@ -18,6 +18,7 @@ export async function getStaticProps() {
         'date',
         'coverImage',
         'characters',
+        'readTime',
         'category',
         'description',
         'tag',

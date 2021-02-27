@@ -5,25 +5,10 @@ import cls from 'classnames';
 import { IoCalendar, IoPencil, IoTime, IoFolder } from "react-icons/io5";
 import style from './index.module.less';
 
-
 class BigArticleCard extends Component {
     state = {
-        mouseSticky: false,
-        articleParam: {}
+        mouseSticky: false
     };
-
-    componentDidMount() {
-        const {slug, title, coverImage, description, characters, category, tag} = this.props;
-        const articleDocArray = slug.split("_");
-        const date = articleDocArray.slice(0, 1);
-        const readTime = Math.floor(characters * 10 / 6);
-
-        this.setState({
-            articleParam: {
-                slug, title, date, coverImage, description, characters, category, readTime
-            }
-        });
-    }
 
     enterArticle = () => {
         this.setState({mouseSticky: true});
@@ -35,10 +20,10 @@ class BigArticleCard extends Component {
 
     render() {
         const {mouseSticky} = this.state;
-        const {slug, title, date, coverImage, description, characters, category, readTime} = this.state.articleParam;
+        const {slug, title, date, coverImage, description, characters, category, readTime} = this.props;
 
-        const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
         const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
+        const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
 
         return (
             <div className={bigCardStyle}>
@@ -105,4 +90,44 @@ class BigArticleCard extends Component {
     }
 }
 
-export { BigArticleCard };
+class SmallArticleCard extends Component {
+    state = {
+        mouseSticky: false
+    };
+
+    enterArticle = () => {
+        this.setState({mouseSticky: true});
+    };
+
+    leaveArticle = () => {
+        this.setState({mouseSticky: false});
+    };
+
+    render() {
+        const {mouseSticky} = this.state;
+        const {slug, title, date, coverImage, description, characters, category, readTime} = this.props;
+
+        const smallCardStyle = cls(style.smallCard, mouseSticky ? style.sticky : '');
+        const smallCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
+
+        return (
+            <div className={smallCardStyle}>
+                <div className={style.smallCardContent} onMouseEnter={this.enterArticle}
+                     onMouseLeave={this.leaveArticle}>
+                    {/* img */}
+                    <div className={style.smallCardContainerImg}>
+                        <img className={style.smallCardImg} alt="" src={coverImage}/>
+                    </div>
+                    {/* img router */}
+                    <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
+                        <a className={style.smallCardMask}/>
+                    </Link>
+                    {/* article div */}
+
+                </div>
+            </div>
+        );
+    }
+}
+
+export { BigArticleCard, SmallArticleCard };
