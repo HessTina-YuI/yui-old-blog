@@ -160,6 +160,27 @@
   background: linear-gradient(170deg, transparent, @primary-color-bg 75%);
 }
 
+.smallCardMore {
+  position: absolute;
+  right: -.5em;
+  bottom: -.5em;
+  display: grid;
+  place-items: center;
+  height: 2em;
+  width: 4em;
+  color: @primary-color-bg;
+  font-size: 1.6em;
+  background: linear-gradient(to top right, #B2FEFA, #0ED2F7);
+  border-radius: @border-radius-base 0 @border-radius-base 0;
+  transition: all .1s linear;
+}
+
+.smallCardMore:hover {
+  right: -.65em;
+  bottom: -.65em;
+  cursor: @mouse-icon;
+}
+
 .sticky {
   .bigCardContent {
     box-shadow: 0 0 22px 3px rgba(0, 0, 0, 0.18);

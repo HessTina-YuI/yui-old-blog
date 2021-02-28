@@ -125,6 +125,15 @@ class SmallArticleCard extends Component {
                     {/* article div */}
 
                 </div>
+                {/* more button */}
+                <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
+                    <a>
+                        <div className={style.smallCardMore} onMouseEnter={this.enterArticle}
+                             onMouseLeave={this.leaveArticle}>
+                            More
+                        </div>
+                    </a>
+                </Link>
             </div>
         );
     }

@@ -44,8 +44,6 @@ class Code extends Component {
         const {language, value} = this.props;
         const {expand} = this.state;
 
-        console.log(value);
-
         const figureStyle = cls(style.figure, expand ? style.active : '');
 
         return (
