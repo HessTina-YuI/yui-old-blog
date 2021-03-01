@@ -70,7 +70,7 @@
   }
 }
 
-.bigCardArticleDescRight {
+.bigCardArticleDescTop {
   justify-content: flex-end;
   padding: .5rem 1rem 0 0;
 }
@@ -91,13 +91,13 @@
     width: 100%;
     height: 80%;
     font-size: 1.2em;
-    line-height: 1.8em !important;
+    line-height: 2em;
     padding-right: 1em;
     overflow: hidden;
   }
 }
 
-.bigCardMore {
+.cardMore {
   position: absolute;
   right: -.5em;
   bottom: -.5em;
@@ -112,7 +112,7 @@
   transition: all .1s linear;
 }
 
-.bigCardMore:hover {
+.cardMore:hover {
   right: -.65em;
   bottom: -.65em;
   cursor: @mouse-icon;
@@ -160,25 +160,72 @@
   background: linear-gradient(170deg, transparent, @primary-color-bg 75%);
 }
 
-.smallCardMore {
-  position: absolute;
-  right: -.5em;
-  bottom: -.5em;
-  display: grid;
-  place-items: center;
-  height: 2em;
-  width: 4em;
-  color: @primary-color-bg;
-  font-size: 1.6em;
-  background: linear-gradient(to top right, #B2FEFA, #0ED2F7);
-  border-radius: @border-radius-base 0 @border-radius-base 0;
-  transition: all .1s linear;
-}
-
 .smallCardMore:hover {
   right: -.65em;
   bottom: -.65em;
   cursor: @mouse-icon;
+}
+
+.smallCardArticle {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
+.smallCardArticleDesc {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  font-size: .75rem;
+  padding-left: 1rem;
+  color: @text-color-gray;
+
+  .smallCardArticleDescIcon {
+    margin-right: 0.25em;
+    font-size: 1.5em;
+  }
+
+  li {
+    display: flex;
+    justify-items: center;
+    padding-right: 1rem;
+  }
+
+  li:last-child {
+    padding-right: 0;
+  }
+}
+
+.smallCardArticleDescTop {
+  position: absolute;
+  top: -2rem;
+  right: 1rem;
+  z-index: 1;
+  width: auto;
+}
+
+.smallCardArticleContext {
+  display: grid;
+  height: 75%;
+  width: 100%;
+  padding: 0 1rem;
+
+  h3 {
+    width: 100%;
+    height: 20%;
+    font-size: 2em;
+    line-height: 2em;
+    margin: 0;
+  }
+
+  div {
+    width: 100%;
+    height: 80%;
+    font-size: 1.2em;
+    line-height: 2em;
+    overflow: hidden;
+  }
 }
 
 .sticky {

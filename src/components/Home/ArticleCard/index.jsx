@@ -23,7 +23,7 @@ class BigArticleCard extends Component {
         const {slug, title, date, coverImage, description, characters, category, readTime} = this.props;
 
         const bigCardStyle = cls(style.bigCard, mouseSticky ? style.sticky : '');
-        const bigCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
+        const bigCardArticleDescTop = cls(style.bigCardArticleDesc, style.bigCardArticleDescTop);
 
         return (
             <div className={bigCardStyle}>
@@ -38,7 +38,7 @@ class BigArticleCard extends Component {
                     </Link>
                     {/* article div */}
                     <article className={style.bigCardArticle}>
-                        <ul className={bigCardArticleDescRight}>
+                        <ul className={bigCardArticleDescTop}>
                             {/* date */}
                             <li>
                                 <IoCalendar className={style.bigCardArticleDescIcon}/>
@@ -62,11 +62,10 @@ class BigArticleCard extends Component {
                                 {title}
                             </Typography.Title>
                             {/* article content */}
-                            <Typography.Paragraph ellipsis={{rows: 3}}>
+                            <Typography.Paragraph ellipsis={{rows: 2, tooltip: description}}>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{description}
                             </Typography.Paragraph>
                         </div>
-
                         {/* category */}
                         <ul className={style.bigCardArticleDesc}>
                             <li>
@@ -79,7 +78,7 @@ class BigArticleCard extends Component {
                 {/* more button */}
                 <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
                     <a>
-                        <div className={style.bigCardMore} onMouseEnter={this.enterArticle}
+                        <div className={style.cardMore} onMouseEnter={this.enterArticle}
                              onMouseLeave={this.leaveArticle}>
                             More
                         </div>
@@ -108,7 +107,7 @@ class SmallArticleCard extends Component {
         const {slug, title, date, coverImage, description, characters, category, readTime} = this.props;
 
         const smallCardStyle = cls(style.smallCard, mouseSticky ? style.sticky : '');
-        const smallCardArticleDescRight = cls(style.bigCardArticleDesc, style.bigCardArticleDescRight);
+        const smallCardArticleDescTop = cls(style.bigCardArticleDesc, style.smallCardArticleDescTop);
 
         return (
             <div className={smallCardStyle}>
@@ -123,17 +122,44 @@ class SmallArticleCard extends Component {
                         <a className={style.smallCardMask}/>
                     </Link>
                     {/* article div */}
-
+                    <article className={style.smallCardArticle}>
+                        <ul className={smallCardArticleDescTop}>
+                            {/* date */}
+                            <li>
+                                <IoCalendar className={style.bigCardArticleDescIcon}/>
+                                <span>{date}</span>
+                            </li>
+                        </ul>
+                        {/* article */}
+                        <div className={style.smallCardArticleContext}>
+                            {/* article title */}
+                            <Typography.Title level={3} ellipsis={{tooltip: title}}>
+                                {title}
+                            </Typography.Title>
+                            {/* article content */}
+                            <Typography.Paragraph ellipsis={{rows: 1, tooltip: description}}>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{description}
+                            </Typography.Paragraph>
+                        </div>
+                        {/* category */}
+                        <ul className={style.smallCardArticleDesc}>
+                            <li>
+                                <IoFolder className={style.smallCardArticleDescIcon}/>
+                                <span>{category}</span>
+                            </li>
+                        </ul>
+                    </article>
                 </div>
                 {/* more button */}
                 <Link href="/posts/[category]/[title]" as={`/posts/${category}/${slug}`}>
                     <a>
-                        <div className={style.smallCardMore} onMouseEnter={this.enterArticle}
+                        <div className={style.cardMore} onMouseEnter={this.enterArticle}
                              onMouseLeave={this.leaveArticle}>
                             More
                         </div>
                     </a>
                 </Link>
+
             </div>
         );
     }
