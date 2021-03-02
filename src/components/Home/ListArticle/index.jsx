@@ -13,7 +13,7 @@ class ListArticle extends Component {
             <section>
                 <div className={context}>
                     {/* ModuleSplit component */}
-                    <ModuleSplit title="ListArticle"/>
+                    <ModuleSplit title="全部文章"/>
                     {/* SmallArticleCard component */}
                     <div className={style.listArticle}>
                         {

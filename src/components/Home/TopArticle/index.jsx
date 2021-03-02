@@ -13,7 +13,7 @@ class TopArticle extends Component {
             <section>
                 <div className={context}>
                     {/* ModuleSplit component */}
-                    <ModuleSplit title="TopArticle"/>
+                    <ModuleSplit title="顶置文章"/>
                     {/* BigArticleCard component */}
                     {
                         topArticles ? topArticles.map((article, index) => {

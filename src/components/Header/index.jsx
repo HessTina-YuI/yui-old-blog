@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import cls from 'classnames';
+import { RiBuilding2Fill, RiLeafFill, RiCameraLensFill, RiMessage3Fill, RiBlazeFill } from "react-icons/ri";
 import { IoMenu } from "react-icons/io5";
 import { FadeIn } from "../Animista";
 import style from './index.module.less';
@@ -46,21 +47,45 @@ class Header extends Component {
 
         return (
             <FadeIn className={showNavStyle}>
-                    <nav className={context}>
-                        {/* logo */}
-                        <Link href="/"><a className={style.logo}/></Link>
-                        {/* mobile menu button */}
-                        <IoMenu className={style.navbarMenuButton} onClick={this.clickNavbarMenuButton}/>
-                        {/* computer menu button */}
-                        <div className={navbarMenuStyle}>
-                            <Link href="/"><a>Home</a></Link>
-                            <Link href="/menu"><a>Menu</a></Link>
-                            <Link href="/services"><a>Services</a></Link>
-                            <Link href="/education"><a>Education</a></Link>
-                            <Link href="/works"><a>Works</a></Link>
-                            <Link href="/contact"><a>Contact</a></Link>
-                        </div>
-                    </nav>
+                <nav className={context}>
+                    {/* logo */}
+                    <Link href="/"><a className={style.logo}/></Link>
+                    {/* mobile menu button */}
+                    <IoMenu className={style.navbarMenuButton} onClick={this.clickNavbarMenuButton}/>
+                    {/* computer menu button */}
+                    <div className={navbarMenuStyle}>
+                        <Link href="/">
+                            <a>
+                                <RiBuilding2Fill className={style.icon}/>
+                                <span>初</span>
+                            </a>
+                        </Link>
+                        <Link href="/category">
+                            <a>
+                                <RiLeafFill className={style.icon}/>
+                                <span>融</span>
+                            </a>
+                        </Link>
+                        <Link href="/archive">
+                            <a>
+                                <RiCameraLensFill className={style.icon}/>
+                                <span>存</span>
+                            </a>
+                        </Link>
+                        <Link href="/explain">
+                            <a>
+                                <RiMessage3Fill className={style.icon}/>
+                                <span>响</span>
+                            </a>
+                        </Link>
+                        <Link href="/friend">
+                            <a>
+                                <RiBlazeFill className={style.icon}/>
+                                <span>友</span>
+                            </a>
+                        </Link>
+                    </div>
+                </nav>
             </FadeIn>
         );
     }

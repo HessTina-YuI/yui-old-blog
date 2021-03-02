@@ -41,7 +41,7 @@ class Home extends Component {
                 <Banner scrollToContainer={this.scrollToContainer}/>
                 {/* About component */}
                 <Element name="container">
-                    <About/>
+                    {/*<About/>*/}
                 </Element>
                 {/* TopArticle component */}
                 <Element name="topArticle">
