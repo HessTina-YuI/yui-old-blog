@@ -41,7 +41,7 @@ class Code extends Component {
     };
 
     render() {
-        const {language, value} = this.props;
+        const {language, value, line} = this.props;
         const {expand} = this.state;
 
         const figureStyle = cls(style.figure, expand ? style.active : '');
@@ -59,7 +59,16 @@ class Code extends Component {
                 <SyntaxHighlighter customStyle={Code.preStyle} codeTagProps={Code.codeStyle}
                                    lineNumberStyle={Code.lineNumberStyle} showLineNumbers
                                    style={vscDarkPlus} language={language}
-                                   children={value}/>
+                                   children={value} wrapLines={true}
+                                   lineProps={lineNumber => {
+                                       let style = { display: 'block' };
+                                       if (line.includes(lineNumber + '')) {
+                                           style.backgroundColor = '#353b45';
+                                           style.borderLeft = '0.25rem solid #40a9ff'
+                                           style.marginLeft = '-0.25rem'
+                                       }
+                                       return { style };
+                                   }}/>
             </figure>
         );
     }
