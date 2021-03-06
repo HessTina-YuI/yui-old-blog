@@ -14,7 +14,7 @@ export default class DashBoard extends Component {
     }
 
     onDragEnd = (result, provided) => {
-        const { destination, source, draggableId } = result;
+        const {destination, source, draggableId} = result;
 
         if (!destination) {
             return;
@@ -37,15 +37,15 @@ export default class DashBoard extends Component {
 
             const newColumn = {
                 ...start,
-                taskIds: newTaskIds,
+                taskIds: newTaskIds
             };
 
             const newState = {
                 ...this.state,
                 columns: {
                     ...this.state.columns,
-                    [newColumn.id]: newColumn,
-                },
+                    [newColumn.id]: newColumn
+                }
             };
 
             this.setState(newState);
@@ -57,14 +57,14 @@ export default class DashBoard extends Component {
         startTaskIds.splice(source.index, 1);
         const newStart = {
             ...start,
-            taskIds: startTaskIds,
+            taskIds: startTaskIds
         };
 
         const finishTaskIds = Array.from(finish.taskIds);
         finishTaskIds.splice(destination.index, 0, draggableId);
         const newFinish = {
             ...finish,
-            taskIds: finishTaskIds,
+            taskIds: finishTaskIds
         };
 
         const newState = {
@@ -72,8 +72,8 @@ export default class DashBoard extends Component {
             columns: {
                 ...this.state.columns,
                 [newStart.id]: newStart,
-                [newFinish.id]: newFinish,
-            },
+                [newFinish.id]: newFinish
+            }
         };
         this.setState(newState);
     };
@@ -133,10 +133,8 @@ class Task extends Component {
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
                 {(provided, snapshot) => (
-                    <div className={style.task}
-                         {...provided.draggableProps}
-                         {...provided.dragHandleProps}
-                         ref={provided.innerRef}>
+                    <div className={cls(style.task, snapshot.isDragging ? style.taskDragging : '')}
+                        {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                         <div className={style.taskContainer}>
                             <IoKeypad className={style.dragIcon}/>
                             <div className={style.taskContext}>
