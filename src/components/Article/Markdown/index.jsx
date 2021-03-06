@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactMarkdownWithHtml from "react-markdown/with-html";
-import gfm from "remark-gfm";
-import gemoji from "remark-gemoji";
+import ReactMarkdownWithHtml from 'react-markdown/with-html';
+import gfm from 'remark-gfm';
+import gemoji from 'remark-gemoji';
 import cls from 'classnames';
-import HeadingBlock from "../HeadingBlock";
-import Code from "../Code";
+import HeadingBlock from '../HeadingBlock';
+import Code from '../Code';
 
 require('./index.less');
 
@@ -20,7 +20,15 @@ class Markdown extends Component {
 
             return <HeadingBlock level={level} value={value}/>;
         },
-        code: ({language, value}) => <Code language={language} value={value}/>
+        code: ({language: tag, value}) => {
+            const tags = tag.split(':');
+            let line = [];
+            if (tags.length > 1) {
+                line = tags[1].trim().split(',');
+            }
+
+            return <Code language={tags[0]} line={line} value={value}/>;
+        }
     };
 
     render() {
