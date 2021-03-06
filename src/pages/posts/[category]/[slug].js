@@ -12,7 +12,7 @@ function PostTemplate({post, morePosts, preview}) {
     );
 }
 
-export async function getStaticProps({params}) {
+export const getStaticProps = async ({params}) => {
     const {category, slug} = params;
     const item = getPostBySlug(category, slug, [
         'title',
@@ -32,9 +32,9 @@ export async function getStaticProps({params}) {
             }
         }
     };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
     const posts = getAllPosts(['category', 'slug']);
 
     return {
@@ -48,6 +48,6 @@ export async function getStaticPaths() {
         }),
         fallback: false
     };
-}
+};
 
 export default PostTemplate;

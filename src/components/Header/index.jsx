@@ -27,6 +27,10 @@ class Header extends Component {
 
         const {showHeaderTop = 0} = this.props;
 
+        if (showHeaderTop === 0) {
+            return;
+        }
+
         if (scrollTop >= showHeaderTop && showHeader === false) {
             this.setState({showHeader: true});
         } else if (scrollTop < showHeaderTop && showHeader === true) {
@@ -39,10 +43,11 @@ class Header extends Component {
     };
 
     render() {
+        const {showHeaderTop = 0} = this.props;
         const {showHeader, mobileMenu} = this.state;
 
         const context = cls('context', style.innerWidth);
-        const showNavStyle = cls(style.navbar, showHeader ? style.sticky : '');
+        const showNavStyle = cls(style.navbar, showHeader || showHeaderTop === 0 ? style.sticky : '');
         const navbarMenuStyle = cls(style.navbarMenu, mobileMenu ? style.navbarMenuShow : '');
 
         return (

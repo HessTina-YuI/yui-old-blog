@@ -1,9 +1,41 @@
 banner:
-  - img: https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17-01.png
-  - img: https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17-02.png
+  - img: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17-01.png'
+  - img: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-17-02.png'
 
 about:
-  img: https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2020-02-19-01.png
+  img: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2020-02-19-01.png'
 
 topArticle:
-  - /test/2021-02-22_test.md
+  - '/test/2021-02-22_test.md'
+
+plan:
+  tasks:
+    task-1:
+      id: 'task-1'
+      content: '响 - 增加博客任务看板的主要模块'
+    task-2:
+      id: 'task-2'
+      content: '响 - 优化博客任务看板的样式'
+    task-3:
+      id: 'task-3'
+      content: '融 - 增加目录分类'
+    task-4:
+      id: 'task-4'
+      content: '增加头部导航的二级导航功能'
+    task-5:
+      id: 'task-5'
+      content: '存 - 增加文章提交后的时间统计图'
+  columns:
+    column-1:
+      id: 'column-1'
+      title: '计划中'
+      taskIds: [ 'task-2','task-3','task-4','task-5' ]
+    column-2:
+      id: 'column-2'
+      title: '进行中'
+      taskIds: [ ]
+    column-3:
+      id: 'column-3'
+      title: '已完成'
+      taskIds: [ 'task-1' ]
+  columnOrder: [ 'column-1','column-2','column-3' ]

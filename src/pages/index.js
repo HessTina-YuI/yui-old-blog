@@ -12,7 +12,7 @@ const Index = (props) => {
     );
 };
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
     const allArticles = getAllPosts([
         'title',
         'date',
@@ -37,6 +37,6 @@ export async function getStaticProps() {
     return {
         props: {allArticles, topArticles}
     };
-}
+};
 
 export default Index;
