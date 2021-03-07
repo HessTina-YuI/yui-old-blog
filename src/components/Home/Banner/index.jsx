@@ -24,7 +24,7 @@ class Banner extends Component {
         const context = cls("context", style.bannerText);
 
         return (
-            <>
+            <div className={style.container}>
                 {/* Carousel component */}
                 <Carousel autoplay dotPosition="right">
                     {
@@ -70,7 +70,7 @@ class Banner extends Component {
                 <DownSolidUpShallow duration={1500}>
                     <BsChevronCompactDown className={style.headerDown} onClick={scrollToContainer}/>
                 </DownSolidUpShallow>
-            </>
+            </div>
         );
     }
 }
