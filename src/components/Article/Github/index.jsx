@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import axios from 'axios';
+import cls from 'classnames';
 import { IoLogoGithub } from "react-icons/io5";
 import style from './index.module.less';
 
@@ -40,7 +41,7 @@ class Github extends Component {
             <div className={style.githubContainer}>
                 <a href={url} target='_blank'>
                     <div className={style.githubContent}>
-                        <h4 className={style.name}>{githubName}</h4>
+                        <h4 className={cls('ignoreToc', style.name)}>{githubName}</h4>
                         <p className={style.description}>{description}</p>
                         <div className={style.path}>
                             <IoLogoGithub className={style.icon}/>
