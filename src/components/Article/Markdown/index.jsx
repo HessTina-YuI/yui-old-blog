@@ -5,6 +5,7 @@ import gemoji from 'remark-gemoji';
 import cls from 'classnames';
 import HeadingBlock from '../HeadingBlock';
 import Code from '../Code';
+import Github from "../Github";
 
 require('./index.less');
 
@@ -21,6 +22,10 @@ class Markdown extends Component {
             return <HeadingBlock level={level} value={value}/>;
         },
         code: ({language: tag, value}) => {
+            if (tag === 'github') {
+                return <Github url={value}/>;
+            }
+
             const tags = tag.split(':');
             let line = [];
             if (tags.length > 1) {

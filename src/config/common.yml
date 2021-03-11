@@ -25,6 +25,9 @@ plan:
     task-5:
       id: 'task-5'
       content: '存 - 增加文章提交后的时间统计图'
+    task-6:
+      id: 'task-6'
+      content: '整理 Markdown 样本, 显示博客中已经实现的解析效果'
   columns:
     column-1:
       id: 'column-1'
@@ -33,7 +36,7 @@ plan:
     column-2:
       id: 'column-2'
       title: '进行中'
-      taskIds: [ ]
+      taskIds: [ 'task-6' ]
     column-3:
       id: 'column-3'
       title: '已完成'
