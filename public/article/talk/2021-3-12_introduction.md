@@ -104,6 +104,11 @@ public class SingletonTest {
 https://github.com/Trafalgar-YuI/yui-blog
 ```
 
+### LaTeX 公式
+
+可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：
+
+$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
 ### 表格 
 
@@ -121,3 +126,9 @@ https://github.com/Trafalgar-YuI/yui-blog
 - [x] 已完成事项
 - [ ] 待办事项1
 - [ ] 待办事项2
+
+### 脚注
+
+在文字上方提供一个脚注[^1]，用于跳转到对该脚注的注释上
+
+[^1]: 这是一个脚注

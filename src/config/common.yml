@@ -36,9 +36,9 @@ plan:
     column-2:
       id: 'column-2'
       title: '进行中'
-      taskIds: [ 'task-6' ]
+      taskIds: [ ]
     column-3:
       id: 'column-3'
       title: '已完成'
-      taskIds: [ 'task-1' ]
+      taskIds: [ 'task-1','task-6' ]
   columnOrder: [ 'column-1','column-2','column-3' ]

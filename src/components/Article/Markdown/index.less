@@ -1,122 +1,132 @@
 .markdown {
-  font-size: 1rem;
+    font-size: 1rem;
 
-  blockquote {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: @info-note-bg;
-    color: @info-note-text;
-    border-left: .25rem solid @info-note-border;
-  }
-
-  p {
-    margin: .5rem 0;
-  }
-
-  table {
-    margin: .5rem 0;
-    text-align: left;
-    border-collapse: collapse;
-    border: 1px solid #6cf;
-
-    th {
-      padding: 20px;
-      font-weight: normal;
-      color: #039;
-      text-transform: uppercase;
-      border-right: 1px solid #0865c2;
-      border-top: 1px solid #0865c2;
-      border-left: 1px solid #0865c2;
-      border-bottom: 1px dashed #0865c2;
+    blockquote {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: @info-note-bg;
+        color: @info-note-text;
+        border-left: .25rem solid @info-note-border;
     }
 
-    td {
-      padding: 10px 20px;
-      color: #669;
-      border-right: 1px dashed #6cf;
+    p {
+        margin: .5rem 0;
     }
-  }
 
-  input {
-    background-color: initial;
-    cursor: default;
-    appearance: auto;
-    box-sizing: border-box;
-    margin: 0.25rem;
-    padding: initial;
-    border: initial;
-  }
+    table {
+        margin: .5rem 0;
+        text-align: left;
+        border-collapse: collapse;
+        border: 1px solid #6cf;
+
+        th {
+            padding: 20px;
+            font-weight: normal;
+            color: #039;
+            text-transform: uppercase;
+            border-right: 1px solid #0865c2;
+            border-top: 1px solid #0865c2;
+            border-left: 1px solid #0865c2;
+            border-bottom: 1px dashed #0865c2;
+        }
+
+        td {
+            padding: 10px 20px;
+            color: #669;
+            border-right: 1px dashed #6cf;
+        }
+    }
+
+    input {
+        background-color: initial;
+        cursor: default;
+        appearance: auto;
+        box-sizing: border-box;
+        margin: 0.25rem;
+        padding: initial;
+        border: initial;
+    }
 
 }
 
 .markdown .note {
-  border-radius: @border-radius-base;
-  margin: 1rem 0;
-  padding: 1rem 1rem 1rem 2.5rem;
-  position: relative;
-  font-size: 1rem;
-  line-height: 1.8rem;
+    border-radius: @border-radius-base;
+    margin: 1rem 0;
+    padding: 1rem 1rem 1rem 2.5rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.8rem;
 
-  ul {
-    margin: .5rem 0 .5rem;
-    padding: .1rem .2rem .1rem 1.4rem;
+    ul {
+        margin: .5rem 0 .5rem;
+        padding: .1rem .2rem .1rem 1.4rem;
 
-    li {
-      position: relative;
-      margin: .2rem 0;
+        li {
+            position: relative;
+            margin: .2rem 0;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            width: .4em;
+            height: .4em;
+            border-radius: 50%;
+            top: .85em;
+            left: -1em;
+        }
     }
+}
 
-    li::before {
-      content: "";
-      position: absolute;
-      width: .4em;
-      height: .4em;
-      border-radius: 50%;
-      top: .85em;
-      left: -1em;
+.annotation {
+    display: inline;
+    padding: 0 .2rem;
+    color: @primary-color;
+
+    &:hover {
+        cursor: @mouse-icon;
     }
-  }
 }
 
 .primary {
-  background: @primary-note-bg;
-  color: @primary-note-text;
-  border-left: .25rem solid @primary-note-border;
+    background: @primary-note-bg;
+    color: @primary-note-text;
+    border-left: .25rem solid @primary-note-border;
 
-  ul li::before {
-    background: @primary-note-text;
-  }
+    ul li::before {
+        background: @primary-note-text;
+    }
 
-  a {
-    border-bottom: .0625rem dashed @primary-note-text;
-  }
+    a {
+        border-bottom: .0625rem dashed @primary-note-text;
+    }
 }
 
 .info {
-  background: @info-note-bg;
-  color: @info-note-text;
-  border-left: .25rem solid @info-note-border;
+    background: @info-note-bg;
+    color: @info-note-text;
+    border-left: .25rem solid @info-note-border;
 
-  ul li::before {
-    background: @info-note-text;
-  }
+    ul li::before {
+        background: @info-note-text;
+    }
 
-  a {
-    border-bottom: .0625rem dashed @info-note-text;
-  }
+    a {
+        border-bottom: .0625rem dashed @info-note-text;
+    }
 }
 
 .warning {
-  background: @warning-note-bg;
-  color: @warning-note-text;
-  border-left: .25rem solid @warning-note-border;
+    background: @warning-note-bg;
+    color: @warning-note-text;
+    border-left: .25rem solid @warning-note-border;
 
-  ul li::before {
-    background: @warning-note-text;
-  }
+    ul li::before {
+        background: @warning-note-text;
+    }
 
-  a {
-    border-bottom: .0625rem dashed @warning-note-text;
-  }
+    a {
+        border-bottom: .0625rem dashed @warning-note-text;
+    }
 }
 

@@ -1,4 +1,8 @@
 const parseToDate = (dateTimeString) => {
+    if (!dateTimeString) {
+        return null;
+    }
+
     const dateTimeArray = dateTimeString.split(' ');
     const dateArray = dateTimeArray[0].split('-');
     const timeArray = dateTimeArray[1].split(':');
