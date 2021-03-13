@@ -11,7 +11,7 @@ class AnchorMenu extends Component {
             tocSelector: '.toc',
             contentSelector: '.markdown',
             headingSelector: 'h1, h2, h3, h4, h5',
-            ignoreSelector: '.ignoreToc',
+            ignoreSelector: '.ignoreToc, .ant-skeleton-title',
             headingsOffset: 200,
             hasInnerContainers: true,
             collapseDepth: 0

@@ -20,6 +20,7 @@ export const getStaticProps = async ({params}) => {
         'articleTopImage',
         'characters',
         'category',
+        'readTime',
         'tag',
         'description',
         'content'

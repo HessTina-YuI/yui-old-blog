@@ -16,6 +16,7 @@ export const getStaticProps = async () => {
     const allArticles = getAllPosts([
         'title',
         'date',
+        'dateTime',
         'coverImage',
         'characters',
         'readTime',

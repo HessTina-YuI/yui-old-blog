@@ -12,14 +12,21 @@ require('./index.less');
 class Markdown extends Component {
     renderers = {
         heading: ({level, children}) => {
-            let value;
             if (!children && children.length <= 0) {
-                value = '';
+                return <div/>;
+            }
+
+            let value;
+            let href;
+
+            if (children[0].props.href) {
+                href = children[0].props.href;
+                value = children[0].props.children[0].props.value;
             } else {
                 value = children[0].props.value;
             }
 
-            return <HeadingBlock level={level} value={value}/>;
+            return <HeadingBlock level={level} value={value} href={href}/>;
         },
         code: ({language: tag, value}) => {
             if (tag === 'github') {

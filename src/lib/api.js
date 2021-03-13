@@ -36,7 +36,7 @@ export function getPostBySlug(category, slug, fields = []) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const {data, content} = matter(fileContents);
     const characters = Math.floor(getPostWordCount(content) / 100) / 10;
-    let readTime = Math.floor(characters * 10 >> 1);
+    let readTime = Math.floor(characters * 10 >> 2);
     readTime = readTime < 1 ? 1 : readTime;
     const dateTime = parseToDate(data.dateTime);
 
