@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IoCalendar, IoPencil, IoTime, IoFolder } from "react-icons/io5";
+import { IoCalendar, IoPencil, IoTime } from "react-icons/io5";
 import Header from '../Header';
 import SkipTool from "../SkipTool";
 import AnchorMenu from './AnchorMenu';

@@ -12,7 +12,7 @@ class AnchorMenu extends Component {
             contentSelector: '.markdown',
             headingSelector: 'h1, h2, h3, h4, h5',
             ignoreSelector: '.ignoreToc, .ant-skeleton-title',
-            headingsOffset: 200,
+            headingsOffset: 150,
             hasInnerContainers: true,
             collapseDepth: 0
         });
