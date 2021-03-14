@@ -14,7 +14,7 @@ class HeadingBlock extends Component {
     };
 
     render() {
-        const {level, value, href} = this.props;
+        const {level, content, value} = this.props;
 
         const headingIgnoreTocStyle = cls('ignoreToc', style.heading);
 
@@ -26,8 +26,22 @@ class HeadingBlock extends Component {
                     </Heading>
                     <Heading className={style.heading} level={`h${level}`} id={value}>
                         {
-                            href ? <a href={href} target='_blank' className={style.title}>{value}</a>
-                                : <span className={style.title}>{value}</span>
+                            content.map((c, index) => {
+                                switch (c.type) {
+                                    case 'link':
+                                        return (
+                                            <a href={c.url} target='_blank' className={style.title} key={index}>
+                                                {c.value}
+                                            </a>
+                                        );
+                                    case 'text':
+                                        return (
+                                            <span className={style.title} key={index}>{c.value}</span>
+                                        );
+                                    default:
+                                        return <></>;
+                                }
+                            })
                         }
                     </Heading>
                     <Heading className={headingIgnoreTocStyle} level={`h${level}`} id={value}>
