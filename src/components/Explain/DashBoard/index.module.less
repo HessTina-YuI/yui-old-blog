@@ -19,6 +19,10 @@
     font-size: 1rem;
     display: flex;
 
+    h3 {
+        color: @primary-color-bg;
+    }
+
     .dashed {
         flex: 1;
         padding-left: 1rem;
@@ -30,7 +34,7 @@
         div {
             width: 100%;
             height: 1px;
-            background: @text-color;
+            background: @primary-color-bg;
         }
     }
 }
@@ -42,18 +46,17 @@
 }
 
 .task {
-    border: 1px solid lightgrey;
     border-radius: @border-radius-base;
     padding: 1rem .25rem;
     margin-bottom: 1rem;
-    background-color: @primary-color-bg;
+    background: @primary-color-bg;
 
     &:hover {
-        box-shadow: 0 0 22px 3px rgba(0, 0, 0, 0.18);
         transition: all .2s ease;
+        box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.2);
 
         .dragIcon {
-            opacity:1;
+            opacity: 1;
         }
     }
 }
@@ -70,6 +73,7 @@
     .dragIcon {
         opacity: 0;
         position: absolute;
+        color: @primary-color-bg;
         left: -1.5rem;
         transition: all .2s ease;
     }

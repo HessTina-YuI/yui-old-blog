@@ -8,6 +8,9 @@ about:
 topArticle:
   - '/talk/2021-3-12_introduction.md'
 
+explain:
+  img: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-03-19-02.png'
+
 plan:
   tasks:
     task-1:

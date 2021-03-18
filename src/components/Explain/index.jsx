@@ -10,16 +10,17 @@ class Explain extends Component {
             tasks: yaml.plan.tasks,
             columns: yaml.plan.columns,
             columnOrder: yaml.plan.columnOrder
-        }
+        },
+        img: yaml.explain.img
     };
 
     render() {
-        const {plan} = this.state;
+        const {plan, img} = this.state;
 
         return (
-            <div className={style.explain}>
+            <div className={style.explain} style={{backgroundImage: `url(${img})`}}>
                 {/* Header component */}
-                <Header showHeaderTop={0}/>
+                <Header showHeaderTop={200}/>
 
                 <DashBoard {...plan}/>
             </div>
