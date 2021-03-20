@@ -1,13 +1,20 @@
 import { resetServerContext } from 'react-beautiful-dnd';
-import Home from '../components/Home';
-import Explain from "../components/Explain";
+import dynamic from "next/dynamic";
+import Loader from '../components/Loader';
 
 require('../styles/global.less');
+
+const ExplainDynamic = dynamic(
+    () => import('../components/Explain'),
+    {
+        loading: ()=> <Loader/>
+    }
+);
 
 const Index = (props) => {
     return (
         <main>
-            <Explain/>
+            <ExplainDynamic/>
         </main>
     );
 };

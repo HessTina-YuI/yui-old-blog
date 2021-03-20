@@ -1,16 +1,25 @@
 import React from 'react';
 import { getPostBySlug, getAllPosts } from '../../../lib/api';
-import Article from "../../../components/Article";
+import dynamic from 'next/dynamic';
+import Loader from '../../../components/Loader';
 
 require('../../../styles/global.less');
 
-function PostTemplate({post, morePosts, preview}) {
+const ArticleDynamic = dynamic(
+    () => import('../../../components/Article'),
+    {
+        loading: () => <Loader/>,
+        ssr: false
+    }
+);
+
+const PostTemplate = ({post, morePosts, preview}) => {
     return (
         <main>
-            <Article article={post}/>
+            <ArticleDynamic article={post}/>
         </main>
     );
-}
+};
 
 export const getStaticProps = async ({params}) => {
     const {category, slug} = params;

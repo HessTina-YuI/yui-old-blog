@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Skeleton } from 'antd';
 import cls from 'classnames';
 import { IoLogoGithub } from "react-icons/io5";
-import yaml from '../../../config/token.yml'
+import yaml from '../../../config/token.yml';
 import style from './index.module.less';
 
 const LOAD_TIME_MILLISECOND = 2000;
@@ -27,7 +27,7 @@ class Github extends Component {
             header.append('Authorization', `token ${yaml.github}`);
         }
 
-        setTimeout(() => {
+        this.timeoutId = setTimeout(() => {
             this.setState({loadingTime: LOAD_TIME_MILLISECOND});
         }, LOAD_TIME_MILLISECOND);
 
@@ -52,6 +52,12 @@ class Github extends Component {
                 });
             })
             .catch((error) => console.error(error));
+    }
+
+    componentWillUnmount() {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
     }
 
     render() {

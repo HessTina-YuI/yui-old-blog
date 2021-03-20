@@ -5,7 +5,8 @@ coverImage: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-0
 articleTopImage: 'https://cdn.jsdelivr.net/gh/Trafalgar-YuI/img-bed@master/img/2021-02-25-01.jpg'
 description: '浅谈现在博客的由来，以及对 markdown 解析实现的功能的介绍'
 tag:
-    - 'test'
+    - 'Blog'
+    - 'Markdown'
 ---
 # 博客的介绍
 
