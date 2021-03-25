@@ -85,6 +85,7 @@ export default class DashBoard extends Component {
 
         return (
             <div className={context}>
+                <div className={style.maskTop}/>
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className={style.container}>
                         {columnOrder.map(columnId => {
